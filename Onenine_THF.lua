@@ -229,7 +229,7 @@ function init_gear_sets()
     sets.idle = {
 		head="Malignance Chapeau",
 		neck='Loricate Torque',
-		ear1="Odnowa Earring +1",
+		ear1="Odnowa Earring + 1",
 		ear2="Etiolation Earring",
         body="Meghanada Cuirie +1",
 		hands="Malignance Gloves",
