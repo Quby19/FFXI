@@ -116,6 +116,7 @@ function init_gear_sets()
 	 sets.TreasureHunter = {
         head="White Rarab Cap +1",
         waist="Chaac Belt", 
+		legs="Volte Hose"
     }
 
     -- Precast sets to enhance JAs

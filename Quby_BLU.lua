@@ -144,6 +144,7 @@ function user_setup()
     send_command('bind @` input /ja "Burst Affinity" <me>')
     send_command('bind !d gs c toggle DW')	
 	send_command('bind f9 gs c cycle CastingMode')
+	send_command('bind ^f9 gs c cycle treasuremode')
 
     update_combat_form()
     select_default_macro_book()
@@ -160,15 +161,21 @@ function user_unload()
     send_command('unbind @`')
     send_command('unbind !d')
 	send_command('unbind f9')
+	send_command('unbind ^f9')
 end
 
 -- Set up gear sets.
 function init_gear_sets()
     --------------------------------------
     -- Start defining the sets
-    --------------------------------------
-    -- Fast cast sets for spells
-    
+	--------------------------------------
+	sets.TreasureHunter = {
+        head="White Rarab Cap +1",
+		waist="Chaac Belt",
+		legs="Volte Hose"
+		}
+
+    -- Fast cast sets for spells    
     sets.precast.FC = {
 		ammo="Staunch Tathlum +1",
 		head=gear.herc_head_mabwsd, -- 7

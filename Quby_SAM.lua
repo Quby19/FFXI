@@ -62,7 +62,7 @@ function user_setup()
     gear.smertrios_wsd 	={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
     gear.smertrios_tp   ={ name="Smertrios's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
 
-    -- Additional local binds   
+    -- Additional local binds
 	send_command('bind f9 gs c cycle treasuremode')
 	send_command('bind ^g gs c cycle Katana')
 
@@ -85,7 +85,8 @@ function init_gear_sets()
     --------------------------------------
     sets.TreasureHunter = {
         head="White Rarab Cap +1",
-        waist="Chaac Belt", 
+		waist="Chaac Belt",
+		legs="Volte Hose"
 		}
     
     -- Precast Sets
@@ -146,6 +147,7 @@ function init_gear_sets()
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
     
     sets.idle = {
+		sub="Nepenthe Grip",
 		ammo="Staunch Tathlum +1",
         head=gear.valorous_head,
 		neck="Sanctity Necklace",
