@@ -39,7 +39,7 @@ function user_setup()
     state.PhysicalDefenseMode:options('Normal', 'MDT')
     state.IdleMode:options('Normal', 'PDT')
 	
-	state.Katana = M{['description']='Current Katana', 'Dojikiri Yasutsuna','Soboro Sukehiro','Ichigohitofuri'}
+	state.Katana = M{['description']='Current Katana','Masamune','Dojikiri Yasutsuna','Soboro Sukehiro'}
 	
 	-- JSE Gear	
 	Artifact_Wakido = {}
@@ -49,7 +49,7 @@ function user_setup()
 		Artifact_Wakido.legs 	="Wakido Haidate +1"
 
     Relic_Sakonji = {}
-		Relic_Sakonji.body 		="Sakonji Domaru +1"
+		Relic_Sakonji.body 		="Sakonji Domaru +3"
 		Relic_Sakonji.hands 	="Sakonji Kote +1"
 		Relic_Sakonji.feet 		="Sakonji Sune-Ate +1"
 
@@ -108,7 +108,7 @@ function init_gear_sets()
 		neck="Samurai's Nodowa +1",
 		ear1="Thrud Earring",
 		ear2="Moonshade Earring",
-        body=gear.flamma_body,
+        body=Relic_Sakonji.body,
 		hands=gear.valorous_hands,
 		ring1="Apate Ring",
 		ring2="Niqmaddu Ring",
@@ -130,7 +130,7 @@ function init_gear_sets()
 		right_ring="Sangoma Ring",
         back=gear.smertrios_wsd,
 		waist="Eschan Stone",
-		legs=gear.flamma_legs,
+		legs="Volte Hose",
 		feet=gear.flamma_feet,
 		}
 		
@@ -147,7 +147,7 @@ function init_gear_sets()
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
     
     sets.idle = {
-		sub="Nepenthe Grip",
+		sub="Utu Grip",
 		ammo="Staunch Tathlum +1",
         head=gear.valorous_head,
 		neck="Sanctity Necklace",
@@ -270,8 +270,8 @@ function job_aftercast(spell, action, spellMap, eventArgs)
         equip({main="Dojikiri Yasutsuna"})
     elseif state.Katana.current == 'Soboro Sukehiro' then
         equip({main="Soboro Sukehiro"})
-	elseif state.Katana.current == 'Ichigohitofuri' then
-		equip({main="Ichigohitofuri"})
+	elseif state.Katana.current == 'Masamune' then
+		equip({main="Masamune"})
     end
 end
 
@@ -282,8 +282,8 @@ function job_state_change(stateField, newValue, oldValue)
             equip({main="Dojikiri Yasutsuna"})
         elseif state.Katana.current == 'Soboro Sukehiro' then
             equip({main="Soboro Sukehiro"})
-		elseif state.Katana.current == 'Ichigohitofuri' then
-            equip({main="Ichigohitofuri"})
+		elseif state.Katana.current == 'Masamune' then
+            equip({main="Masamune"})
 		end
     end
 end
@@ -294,8 +294,8 @@ function customize_idle_set(idleSet)
         equip({ranged="Dojikiri Yasutsuna"})
     elseif state.Katana.current == 'Soboro Sukehiro' then
         equip({main="Soboro Sukehiro"})
-	elseif state.Katana.current == 'Ichigohitofuri' then
-		equip({main="Ichigohitofuri"})
+	elseif state.Katana.current == 'Masamune' then
+		equip({main="Masamune"})
     end
     return idleSet
 end
@@ -344,9 +344,8 @@ function select_default_macro_book()
     end
 end
 
-
 function set_lockstyle()
-    send_command('wait 4; input /lockstyleset 8')
+    send_command('wait 10; input /lockstyleset 8')
 end
 -------------------------------------------------------------------------------------------------------------------
 -- Utility functions specific to this job.

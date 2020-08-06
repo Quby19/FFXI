@@ -257,9 +257,8 @@ function init_gear_sets()
 	}
 
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {
-		head="Befouled Crown",
 		waist="Embla Sash",
-		right_ear="Andoaa Earring",
+		-- right_ear="Andoaa Earring",
 	})
 	
 	sets.precast.FC.Cure = set_combine(sets.precast.FC,{
@@ -307,11 +306,11 @@ function init_gear_sets()
 	}
 
 	sets.midcast['Enhancing Magic'] = {
-		head="Befouled crown",
+		
 	}
 	
 	sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {
-		neck="Nodens Gorget",
+		-- neck="Nodens Gorget",
 		waist="Siegel Sash"
 	})
 	
@@ -327,7 +326,6 @@ function init_gear_sets()
 	sets.midcast['Enfeebling Magic'] = {
 		main="Daybreak",
 		sub="Genbu's Shield",
-		head="Befouled crown",
 		neck="Incanter's Torque",
 		ear1="Gwati Earring",
 		body=gear.inyanga_body,
@@ -558,7 +556,7 @@ function init_gear_sets()
 		head=gear.vanya_head_skill,
 		body=gear.apogee_body_magic,
 		hands=gear.merlinic_hands_phy,
-		legs=gear.merlinic_legs,
+		legs="",
 		feet=gear.merlinic_feet_th,
 		neck="Sanctity Necklace",
 		waist="Eschan Stone",
@@ -574,7 +572,7 @@ function init_gear_sets()
 		head=gear.vanya_head_skill,
 		body=gear.apogee_body_magic,
 		hands="Asteria Mitts +1",
-		legs=gear.merlinic_legs,
+		legs="",
 		feet=gear.apogee_feet_magical,
 		neck="Sanctity Necklace",
 		waist="Eschan Stone",

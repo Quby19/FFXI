@@ -233,7 +233,7 @@ function init_gear_sets()
 		ear2="Etiolation Earring",
         body="Meghanada Cuirie +1",
 		hands="Malignance Gloves",
-		ring1="Fortified Ring",
+		ring1="Gelatinous Ring +1",
 		ring2="Shneddick Ring",
         back="Solemnity Cape",
 		waist="Eschan Stone",

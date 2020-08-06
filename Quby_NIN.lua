@@ -113,10 +113,10 @@ function init_gear_sets()
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
-		head={ name="Herculean Helm", augments={'Weapon skill damage +5%','Accuracy+12',}},
-		body="Mummu Jacket +2",
+		head=gear.herc_head_wsd,
+		body=gear.adhemar_body_melee,
 		hands="Malignance Gloves",
-		legs="Hiza. Hizayoroi +2",
+		legs=gear.hizamaru_legs,
 		feet=gear.herculean_feet_melee,
 		neck="Fotia Gorget",
 		waist="Fotia Belt",
@@ -149,21 +149,21 @@ function init_gear_sets()
     --------------------------------------
 	
 	sets.midcast = {
-		head="Adhemar Bonnet +1",
+		head=gear.adhemar_head_melee,
 		neck="Loricate Torque +1",
 		ear1="Etiolation Earring",
 		ear2="Odnowa Earring +1",
-        body="Adhemar Jacket +1",
-		hands="Adhemar Wristbands +1",
+        body=gear.adhemar_body_melee,
+		hands=gear.adhemar_hands_melee,
 		ring1="Vocane Ring",
 		ring2="Defending Ring",
         back="Moonbeam Cape",
 		waist="Sailfi Belt +1",
 		legs="Malignance Tights",
-		feet="Herculean Boots"
+		feet=gear.herculean_feet_melee
 		}
 	
-    -- sets.midcast.FastRecast = {}
+    sets.midcast.FastRecast = sets.midcast
         
     sets.midcast.Utsusemi = set_combine(sets.midcast, {
 		})
@@ -193,7 +193,7 @@ function init_gear_sets()
 		neck="Loricate Torque +1",
 		ear1="Etiolation Earring",
 		ear2="Odnowa Earring +1",
-        body="Mummu Jacket +2",
+        body=gear.adhemar_body_melee,
 		hands="Malignance Gloves",
 		ring1="Vocane Ring",
 		ring2="Defending Ring",
@@ -232,7 +232,7 @@ function init_gear_sets()
 		neck="Loricate Torque +1",
 		ear1="Etiolation Earring",
 		ear2="Odnowa Earring +1",
-        body="Mummu Jacket +2",
+        body=gear.adhemar_body_melee,
 		hands="Malignance Gloves",
 		ring1="Vocane Ring",
 		ring2="Defending Ring",
@@ -257,12 +257,12 @@ function init_gear_sets()
     -- Normal melee group
     sets.engaged = {
 		ammo="Ginsen",
-        head="Adhemar Bonnet +1",
+        head=gear.adhemar_head_melee,
 		neck="Moonbeam Nodowa",
 		ear1="Telos Earring",
 		ear2="Suppanomimi",
-        body="Adhemar Jacket +1",
-		hands="Adhemar Wristbands +1",
+        body=gear.adhemar_body_melee,
+		hands=gear.adhemar_hands_melee,
 		ring1="Epona's Ring",
 		ring2="Petrov Ring",
         back="Atheling Mantle",

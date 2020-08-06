@@ -144,18 +144,18 @@ function init_gear_sets()
 
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
-		head="Meghanada Visor +2",
+		head=gear.meghanada_head,
 		neck='Fotia Gorget',
 		ear1="Ishvara Earring",
 		ear2="Moonshade Earring",
-        body="Meghanada Cuirie +2",
-		hands="Meghanada Gloves +2",
+        body=gear.meghanada_body,
+		hands=gear.meghanada_hands,
 		ring1="Rajas Ring",
 		ring2="Apate Ring",
         back="Toutatis's Cape",
 		waist="Fotia Belt",
 		legs=gear.herculean_legs_wsd,
-		feet="Meghanada Jambeaux +2"
+		feet=gear.meghanada_feet
 		}
 		
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {})
@@ -168,7 +168,7 @@ function init_gear_sets()
     sets.precast.WS['Dancing Edge'].Acc = set_combine(sets.precast.WS['Dancing Edge'], {})
 
     sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS, {
-		head="Adhemar Bonnet +1",
+		head=gear.adhemar_head_melee,
 		legs="Malignance Tights",
 	})
     sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS['Evisceration'], {})
@@ -246,7 +246,7 @@ function init_gear_sets()
 		neck="Loricate Torque +1",
 		ear1="Etiolation Earring",
 		ear2="Odnowa Earring +1",
-        body="Meghanada Cuirie +2",
+        body=gear.meghanada_body,
 		hands="Malignance Gloves",
 		ring1="Vocane Ring",
 		ring2="Defending Ring",
@@ -257,9 +257,9 @@ function init_gear_sets()
 		}
 	
 	sets.idle.Regen = set_combine(sets.idle, {
-		head="Meghanada Visor +2",
-		body="Meg. Cuirie +2",
-		hands="Meg. Gloves +2",
+		head=gear.meghanada_head,
+        body=gear.meghanada_body,
+		hands=gear.meghanada_hands,
 		neck="Sanctity Necklace",
 		})
 		
@@ -283,7 +283,7 @@ function init_gear_sets()
 		neck="Loricate Torque +1",
 		ear1="Etiolation Earring",
 		ear2="Odnowa Earring +1",
-        body="Meghanada Cuirie +2",
+        body=gear.meghanada_body,
 		hands="Malignance Gloves",
 		ring1="Vocane Ring",
 		ring2="Defending Ring",
@@ -300,12 +300,12 @@ function init_gear_sets()
 
     -- Normal melee group
     sets.engaged = {
-		head="Adhemar Bonnet +1",
+		head=gear.adhemar_head_melee,
 		neck="Anu Torque",
 		ear1="Sherida Earring",
 		ear2="Suppanomimi",
-        body="Adhemar Jacket +1",
-		hands="Adhemar Wristbands +1",
+        body=gear.adhemar_body_melee,
+		hands=gear.adhemar_hands_melee,
 		left_ring="Petrov Ring",
 		right_ring="Epona's Ring",
         back="Toutatis's Cape",
@@ -320,7 +320,7 @@ function init_gear_sets()
 		neck="Sanctity Necklace",
 		ear1="Cessance Earring",
 		ear2="Telos Earring",
-        body="Adhemar Jacket +1",
+        body=gear.adhemar_body_melee,
 		hands="Malignance Gloves",
 		ring1="Meghanada Ring",
 		ring2="Mummu Ring",
@@ -333,7 +333,7 @@ function init_gear_sets()
 		neck="Loricate Torque +1",
 		ear1="Sherida Earring",
 		ear2="Suppanomimi",
-        body="Adhemar Jacket +1",
+        body=gear.adhemar_body_melee,
 		hands="Malignance Gloves",
 		ring1="Epona's Ring",
 		ring2="Defending Ring",

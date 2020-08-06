@@ -8,6 +8,7 @@ function get_sets()
     
     -- Load and initialize the include file.
     include('Mote-Include.lua')
+    include('Mote-TreasureHunter')
 end
 
 
@@ -133,7 +134,7 @@ end
 function user_setup()
     state.OffenseMode:options('Normal', 'Mod')
     state.WeaponskillMode:options('Normal')
-    state.CastingMode:options('Normal', 'Nuke')
+    state.CastingMode:options('Normal', 'TH')
     state.IdleMode:options('Normal', 'PDT')
 
     state.DW = M(true, 'Dual Wield')
@@ -259,7 +260,7 @@ function init_gear_sets()
         head=gear.jhakri_head,
 		neck="Sanctity Necklace",
 		ear1="Friomisi Earring",
-		ear2="Moonshade Earring",
+		ear2="Crematio Earring",
         body=gear.jhakri_body,
 		hands=gear.jhakri_hands,
 		ring1="Metamorph Ring +1",
@@ -270,9 +271,10 @@ function init_gear_sets()
 		feet=gear.jhakri_feet
 	}
 	
-	sets.midcast['Blue Magic'].Magical.Nuke = set_combine(sets.midcast['Blue Magic'].Magical, {
-		-- main="Nibiru Cudgel",
-		-- sub="Nibiru Cudgel"
+	sets.midcast['Blue Magic'].Magical.TH = set_combine(sets.midcast['Blue Magic'].Magical, {
+		head="White Rarab Cap +1",
+		waist="Chaac Belt",
+		legs="Volte Hose"
 	})
 	
 	sets.midcast['Blue Magic'].MagicalDark = set_combine(sets.midcast['Blue Magic'].Magical, {
@@ -328,7 +330,7 @@ function init_gear_sets()
 		head="Malignance Chapeau",
 		ear1="Etiolation Earring",
 		ear2="Loquac. Earring",
-		body="Jhakri Robe +2",
+		body=gear.jhakri_body,
 		hands="Malignance Gloves",
 		ring1="Vocane Ring",
 		ring2="Defending Ring",
@@ -345,7 +347,7 @@ function init_gear_sets()
 
 	-- Resting sets
     sets.resting = set_combine(sets.idle, {
-		body="Jhakri Robe +2"
+		body=gear.jhakri_body
 		})
     
     sets.Kiting = {legs="Carmine cuisses +1"}
@@ -387,7 +389,7 @@ function init_gear_sets()
 		head="Malignance Chapeau",
 		ear1="Etiolation Earring",
 		ear2="Loquac. Earring",
-		body="Jhakri Robe +2",
+		body=gear.jhakri_body,
 		hands="Malignance Gloves",
 		ring1="Vocane Ring",
 		ring2="Defending Ring",

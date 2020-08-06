@@ -25,7 +25,9 @@ end
 function user_setup()
     state.OffenseMode:options('None', 'Normal')
     state.CastingMode:options('Normal', 'Resistant')
-    state.IdleMode:options('Normal', 'PDT')
+	state.IdleMode:options('Normal', 'PDT')
+	
+	gear.nantosuelta_regen = { name="Nantosuelta's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Phys. dmg. taken-10%',}}
 
     select_default_macro_book()
 	set_lockstyle()
@@ -255,8 +257,8 @@ function init_gear_sets()
 		ear2="Etiolation Earring",
         body="Witching Robe",
 		hands="Geomancy Mitaines +2",
-		ring1="Shneddick Ring",
-		ring2="Fortified Ring",
+		ring1="Gelatinous Ring +1",
+		ring2="Shneddick Ring",
         back="Kumbira Cape",
         waist="Hierarch Belt",
 		legs="Assiduity Pants +1",
@@ -275,9 +277,9 @@ function init_gear_sets()
 		ear2="Etiolation Earring",
         body="Witching Robe",
 		hands="Geomancy Mitaines +2",
-		ring1="Fortified Ring",
+		ring1="Gelatinous Ring +1",
 		ring2="Shneddick Ring",
-        back="Lifestream Cape",
+        back=gear.nantosuelta_regen,
         waist="Fucho-no-obi",
 		legs="Assiduity Pants +1",
 		feet="Azimuth Gaiters +1"
@@ -289,11 +291,10 @@ function init_gear_sets()
 		neck="Loricate Torque",
 		ear1="Eabani Earring",
         body="Mallquis Saio +2",
-        back="Solemnity Cape",
 		legs="Geomancy Pants +1"
 		})
 
-    -- .Pet sets are for when Luopan is present.  38
+    -- .Pet sets are for when Luopan is present.  39
     sets.idle.Pet = {
 		main="Daybreak",
 		sub="Genbu's Shield",
@@ -304,12 +305,12 @@ function init_gear_sets()
 		ear2="Handler's Earring",			--3
 		body=gear.telchine_body_pet_dt,		--4
 		hands="Geomancy Mitaines +2",		--12
-		ring1="Fortified Ring",
+		ring1="Gelatinous Ring +1",
 		ring2="Shneddick Ring",
-        back="Lifestream Cape",				--3
+        back=gear.nantosuelta_regen,
         waist="Isa Belt",					--3
 		legs="Psycloth Lappas",				--4
-		feet="Bagua Sandals +1"
+		feet=gear.telchine_feet_pet_dt		--4
 		}
 
     sets.idle.PDT.Pet = set_combine(sets.idle.Pet, {	
@@ -341,7 +342,7 @@ function init_gear_sets()
 		ear2="Etiolation Earring",
         body="Mallquis Saio +2",
 		hands="Geomancy Mitaines +2",
-		ring1="Fortified Ring",
+		ring1="Gelatinous Ring +1",
 		ring2="Shneddick Ring",
         back="Lifestream Cape",
         waist="Hierarch Belt",

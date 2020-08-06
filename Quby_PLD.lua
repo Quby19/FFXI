@@ -89,7 +89,7 @@ function init_gear_sets()
 		ammo="Staunch Tathlum +1",
         head="Souveran Schaller +1",
 		neck="Moonbeam Necklace",
-		ear1="Etiolation Earring",
+		ear1="Crematio Earring",
 		ear2="Friomisi Earring",
         body="Reverence Surcoat +1",
 		hands="Souveran Handschuhs +1",
@@ -139,8 +139,8 @@ function init_gear_sets()
 		})
 		
 	sets.precast.FC.Cure = set_combine(sets.precast.FC, {
-		neck="Diemer Gorget",
-		ear2="Nourishing Earring +1"
+		-- neck="Diemer Gorget",
+		-- ear2="Nourishing Earring +1"
 	})
 	
     ----- Weaponskill sets
@@ -148,18 +148,18 @@ function init_gear_sets()
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
 		ammo="Ginsen",
-        head="Flamma Zucchetto +2",
+        head=gear.flamma_head,
 		neck="Fotia Gorget",
 		ear1="Ishvara Earring",
 		ear2="Moonshade Earring",
-        body="Flamma Korazin +2",
-		hands="Flamma Manopolas +2",
+        body=gear.flamma_body,
+		hands=gear.flamma_hands,
 		ring1="Apate Ring",
 		ring2="Rajas Ring",
         back="Atheling Mantle",
 		waist="Fotia Belt",
-		legs="Flamma Dirs +1",
-		feet="Flamma Gambieras +2"
+		legs="Volte Hose",
+		feet=gear.flamma_feet
 		}
 
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {})
@@ -199,7 +199,7 @@ function init_gear_sets()
 		ammo="Staunch Tathlum +1",
         head="Souveran Schaller +1",
 		neck="Moonbeam Necklace",
-		ear1="Etiolation Earring",
+		ear1="Cryptic Earring",
 		ear2="Friomisi Earring",
         body="Reverence Surcoat +1",
 		hands="Souveran Handschuhs +1",
@@ -215,7 +215,7 @@ function init_gear_sets()
 		ammo="Staunch Tathlum +1",
 		head="Souveran Schaller +1",
 		neck="Moonbeam Necklace",
-		ear1="Knightly Earring",
+		ear2="Knightly Earring",
 		legs="Carmine Cuisses +1",
 		feet="Odyssean Greaves"
 		}
@@ -294,13 +294,14 @@ function init_gear_sets()
 		
 	sets.idle.PDT = set_combine(sets.idle, {
 		ammo="Staunch Tathlum +1",
-		neck="Loricate Torque +1",
+		neck="Diemer Gorget",
 		hands="Souveran Handschuhs +1",
 		ring2="Defending Ring",
 		legs="Souveran Diechlings +1",
 		})
 	
 	sets.idle.MDT = set_combine(sets.idle.PDT, {
+		neck="Loricate Torque +1",
 		ring1="Vocane Ring",
 		ring2="Defending Ring",
 		legs="Carmine Cuisses +1",
@@ -371,18 +372,18 @@ function init_gear_sets()
     
     sets.engaged = {
 		ammo="Ginsen",
-        head="Flamma Zucchetto +2",
+        head=gear.flamma_head,
 		neck="Lissome Necklace",
 		ear1="Brutal Earring",
 		ear2="Cessance Earring",
-        body="Flamma Korazin +2",
-		hands="Flamma Manopolas +2",
+        body=gear.flamma_body,
+		hands=gear.flamma_hands,
 		ring1="Petrov Ring",
 		ring2="Rajas Ring",
         back="Atheling Mantle",
 		waist="Windbuffet Belt +1",
 		legs="Carmine Cuisses +1",
-		feet="Flamma Gambieras +2"
+		feet=gear.flamma_feet
 		}
 
     sets.engaged.Acc = set_combine(sets.engaged, {

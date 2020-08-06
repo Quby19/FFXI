@@ -108,7 +108,7 @@ function init_gear_sets()
 		right_ear="Odnowa Earring +1",
 		body="Flamma Korazin +1",
 		hands=gear.sulevia_hands,
-		left_ring="Petrov Ring",
+		ring1="Gelatinous Ring +1",
 		right_ring="Shneddick Ring",
 		back=gear.brigantia_str,
 		waist="Sailfi Belt +1",
