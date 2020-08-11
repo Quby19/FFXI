@@ -35,7 +35,7 @@ end
 -- Setup vars that are user-dependent.
 function user_setup()
 	state.OffenseMode:options('Normal', 'Mod')
-    state.WeaponskillMode:options('Normal', 'Acc')
+    state.WeaponskillMode:options('Normal', 'Acc', 'NODA')
     state.PhysicalDefenseMode:options('Normal', 'MDT')
     state.IdleMode:options('Normal', 'PDT')
 	
@@ -140,6 +140,22 @@ function init_gear_sets()
 		feet=gear.flamma_feet
 		})
 
+	sets.precast.WS.NODA = {
+		ammo="Staunch Tathlum +1",
+		head="Kendatsuba Jinpachi +1",
+		neck="Loricate Torque +1",
+		ear1="Etiolation Earring",
+		ear2="Odnowa Earring +1",
+		body="Kendatsuba Samue +1",
+		hands=Relic_Sakonji.hands,
+		ring1="Vocane Ring",
+		ring2="Defending Ring",
+		back="Moonbeam Cape",
+		waist="Flume Belt",
+		legs="Kendatsuba Hakama +1",
+		feet="Ken. Sune-Ate +1"
+		}
+
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
 
     -- Sets to return to when not performing an action.    
@@ -168,6 +184,23 @@ function init_gear_sets()
 		neck="Loricate Torque +1",
 		feet="Ken. Sune-Ate +1"
 		})
+
+	sets.idle.Town = {
+		sub="Utu Grip",
+		ammo="Staunch Tathlum +1",
+		head="Ken. Jinpachi +1",
+		neck="Samurai's Nodowa +1",
+		left_ear="Etiolation Earring",
+		right_ear="Odnowa Earring +1",
+		body="Kendatsuba Samue +1",
+		hands=Artifact_Wakido.hands,
+		left_ring="Vocane Ring",
+		right_ring="Defending Ring",
+        back=gear.smertrios_tp,
+		waist="Flume Belt",
+		legs="Ken. Hakama +1",
+		feet="Danzo Sune-Ate"
+		}
     
     -- Defense sets
     sets.defense.MDT = {
@@ -200,6 +233,7 @@ function init_gear_sets()
     -- Normal melee group
     -- Delay 450 GK, 25 Save TP => 65 Store TP for a 5-hit (25 Store TP in gear)
     sets.engaged = {
+		sub="Utu Grip",
 		ammo="Ginsen",
         head=gear.flamma_head,
 		neck="Samurai's Nodowa +1",

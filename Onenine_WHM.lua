@@ -59,7 +59,7 @@ function init_gear_sets()
 		ring2="Etana Ring",
 		back="Alaunus's Cape",
 		waist="Embla sash",
-		feet="Gendewitha Galoshes +1",
+		feet="Chelona Boots",
 		}
 
     sets.precast.FC['Healing Magic'] = set_combine(sets.precast.FC, {
@@ -182,7 +182,7 @@ function init_gear_sets()
 
     sets.midcast.Regen = set_combine(sets.midcast['Enhancing Magic'], {
 		main="Bolelabunga",
-		head="Inyanga Tiara +1",
+		head="Inyanga Tiara +2",
 		})
 
     -- sets.midcast.Protectra = {}
@@ -200,7 +200,7 @@ function init_gear_sets()
 		main="Daybreak",
 		sub="Genbu's Shield",
 		ammo="Hydrocera",
-		head="Inyanga Tiara +1",
+		head="Inyanga Tiara +2",
 		neck="Erra Pendant",
 		left_ear="Malignance Earring",
 		right_ear="Gwati Earring",
@@ -239,7 +239,7 @@ function init_gear_sets()
         back="Solemnity Cape",
         waist="Hierarch Belt",
 		legs="Assiduity Pants +1",
-		feet="Inyanga Crackows +1",
+		feet="Inyanga Crackows +2",
 		}    
 
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
@@ -247,7 +247,7 @@ function init_gear_sets()
 		main="Daybreak",
 		sub="Genbu's Shield",
 		ammo="Homiliary",
-		head="Inyanga Tiara +1",
+		head="Inyanga Tiara +2",
 		neck="Loricate Torque",
 		ear1="Moonshade Earring",
 		ear2="Etiolation Earring",
@@ -258,7 +258,7 @@ function init_gear_sets()
         back="Solemnity Cape",
         waist="Fucho-no-obi",
 		legs="Inyanga Shalwar +2",
-		feet="Inyanga Crackows +1",
+		feet="Inyanga Crackows +2",
 		}
 
     sets.idle.PDT = set_combine(sets.idle, {
@@ -298,9 +298,9 @@ function init_gear_sets()
 		ring1="Gelatinous Ring +1",
 		ring2="Shneddick Ring",
         back="Solemnity Cape",
-        waist="Hierarch Belt",
+        waist="Fucho-no-obi",
 		legs="Assiduity Pants +1",
-		feet="Inyanga Crackows +1",
+		feet="Inyanga Crackows +2",
 		}
 
     -- Buff sets: Gear that needs to be worn to actively enhance a current player buff.

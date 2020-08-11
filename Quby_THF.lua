@@ -150,7 +150,7 @@ function init_gear_sets()
 		ear2="Moonshade Earring",
         body=gear.meghanada_body,
 		hands=gear.meghanada_hands,
-		ring1="Rajas Ring",
+		ring1="Ilabrat Ring",
 		ring2="Apate Ring",
         back="Toutatis's Cape",
 		waist="Fotia Belt",
@@ -173,7 +173,10 @@ function init_gear_sets()
 	})
     sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS['Evisceration'], {})
 
-    sets.precast.WS["Rudra's Storm"] = set_combine(sets.precast.WS, {})
+    sets.precast.WS["Rudra's Storm"] = set_combine(sets.precast.WS, {
+		neck="Caro Necklace",
+		ear1="Odr Earring",
+	})
     sets.precast.WS["Rudra's Storm"].Acc = set_combine(sets.precast.WS["Rudra's Storm"], {})
 
     sets.precast.WS["Shark Bite"] = set_combine(sets.precast.WS, {})
@@ -197,7 +200,7 @@ function init_gear_sets()
 		neck="Sanctity Necklace",
 		waist="Eschan Stone",
 		left_ear="Friomisi Earring",
-		right_ear="Moonshade Earring",
+		right_ear="Crematio Earring",
 		left_ring="Dingir Ring",
 		right_ring="Acumen Ring",
 		back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
@@ -303,7 +306,7 @@ function init_gear_sets()
 		head=gear.adhemar_head_melee,
 		neck="Anu Torque",
 		ear1="Sherida Earring",
-		ear2="Suppanomimi",
+		ear2="Telos Earring",
         body=gear.adhemar_body_melee,
 		hands=gear.adhemar_hands_melee,
 		left_ring="Petrov Ring",

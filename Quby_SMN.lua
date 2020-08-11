@@ -152,6 +152,7 @@ function user_setup()
     gear.perp_staff = {name="Gridarvor"}
 	
 	send_command('bind f9 gs c cycle CastingMode')
+    send_command('wait 2; input //du bmn self always true;')
 	
 	set_lockstyle()
 	select_default_macro_book()
@@ -160,7 +161,7 @@ end
 -- Called when this job file is unloaded (eg: job change)
 function user_unload()
 	send_command('unbind f9')
-	send_command('wait 1; input //du bmn self always off')
+	send_command('wait 1; input //du bmn self always false')
 end
 
 
@@ -961,7 +962,7 @@ function create_pact_timer(spell_name)
 end
 
 function set_lockstyle()
-    send_command('wait 4; input /lockstyleset 10; wait 2; input //du bmn self always on:')
+    send_command('wait 6; input /lockstyleset 10;')
 end
 
 

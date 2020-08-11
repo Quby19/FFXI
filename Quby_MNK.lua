@@ -8,6 +8,7 @@ function get_sets()
     
     -- Load and initialize the include file.
     include('Mote-Include.lua')
+	include('Mote-Utility.lua')
 end
 
 
@@ -42,11 +43,11 @@ function user_setup()
 
 	-- JSE Gear	
 	Artifact_Anchorite = {}
-		Artifact_Anchorite.head 	="Anchorite's Crown"
-		Artifact_Anchorite.body 	="Anchorite's Cyclas"
-		Artifact_Anchorite.hands 	="Anchorite's Gloves"
-		Artifact_Anchorite.legs 	="Anchorite's Hose"
-		Artifact_Anchorite.feet 	="Anchorite's Gaiters"
+		Artifact_Anchorite.head 	="Anchorite's Crown +1"
+		Artifact_Anchorite.body 	="Anchorite's Cyclas +1"
+		Artifact_Anchorite.hands 	="Anchorite's Gloves +1"
+		Artifact_Anchorite.legs 	="Anchorite's Hose +1"
+		Artifact_Anchorite.feet 	="Anchorite's Gaiters +1"
 
     Relic_Hesychast = {}
 		Relic_Hesychast.head 		="Hesychast's Crown"
@@ -64,7 +65,7 @@ function user_setup()
 	-- gear.cape3 = { name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
 	-- gear.cape4 = { name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Crit.hit rate+10',}}
 
-	gear.segomo_tp	={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%',}}
+	gear.segomo_tp	={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','System: 1 ID: 640 Val: 4',}}
 	gear.segomo_wsd	={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}}
 
     select_default_macro_book()
@@ -128,7 +129,7 @@ function init_gear_sets()
 		left_ring="Vocane Ring",
 		right_ring="Defending Ring",
 		back=gear.segomo_tp,
-		waist="Eschan Stone",
+		waist="Moonbow Belt",
 		legs="Malignance Tights",
 		feet=gear.herculean_feet_melee,
 	}
@@ -138,7 +139,7 @@ function init_gear_sets()
     sets.precast.WS = {
 		ammo="Knobkierrie",
 		head="Lilitu Headpiece",
-		neck="Fotia Gorget",
+		neck="Monk's Nodowa +1",
 		left_ear="Sherida Earring",
 		right_ear="Moonshade Earring",
 		body="Ken. Samue +1",
@@ -146,7 +147,7 @@ function init_gear_sets()
 		left_ring="Niqmaddu Ring",
 		right_ring="Apate Ring",
 		back=gear.segomo_wsd,
-		waist="Fotia Belt",
+		waist="Moonbow Belt",
 		legs=gear.herculean_legs_wsd,
 		feet="Ken. Sune-Ate +1",
 	}
@@ -170,8 +171,9 @@ function init_gear_sets()
 
 	sets.precast.WS["Victory Smite"] = set_combine(sets.precast.WS, {
 		-- legs=Relic_Hesychast.legs,
-		right_ear="Odr Earring",
+		left_ear="Odr Earring",
 		-- right_ring="Gere Ring",
+		legs="Ken. Hakama +1",
 		-- back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Crit.hit rate+10',}},
 	})
 
@@ -191,15 +193,15 @@ function init_gear_sets()
     sets.idle = {
 		ammo="Staunch Tathlum +1",
 		head="Malignance Chapeau",
-		neck="Sanctity Necklace",
+		neck="Monk's Nodowa +1",
 		left_ear="Etiolation Earring",
 		right_ear="Odnowa Earring +1",
 		body="Kendatsuba Samue +1",
 		hands="Malignance Gloves",
 		left_ring="Vocane Ring",
 		right_ring="Defending Ring",
-		back=gear.segomo_tp,
-		waist="Windbuffet Belt +1",
+		back="Moonbeam Cape",
+		waist="Moonbow Belt",
 		legs="Malignance Tights",
 		feet="Herald's Gaiters",
 	}
@@ -221,9 +223,25 @@ function init_gear_sets()
 		left_ring="Vocane Ring",
 		right_ring="Defending Ring",
 		back="Moonbeam Cape",
-		waist="Windbuffet Belt +1",
+		waist="Moonbow Belt",
 		legs="Malignance Tights",
         feet="Malignance Boots",
+	}
+
+	sets.idle.Town = {
+		ammo="Staunch Tathlum +1",
+		head="Ken. Jinpachi +1",
+		neck="Monk's Nodowa +1",
+		left_ear="Etiolation Earring",
+		right_ear="Odnowa Earring +1",
+		body="Kendatsuba Samue +1",
+		hands="Malignance Gloves",
+		left_ring="Vocane Ring",
+		right_ring="Defending Ring",
+		back=gear.segomo_tp,
+		waist="Moonbow Belt",
+		legs="Ken. Hakama +1",
+		feet="Herald's Gaiters",
 	}
 
     sets.Kiting = {feet="Herald's Gaiters"}
@@ -239,7 +257,7 @@ function init_gear_sets()
     sets.engaged = {
 		ammo="Ginsen",
 		head=gear.adhemar_head_melee,
-		neck="Lissome Necklace",
+		neck="Monk's Nodowa +1",
 		left_ear="Telos Earring",
 		right_ear="Sherida Earring",
 		body="Kendatsuba Samue +1",
@@ -247,7 +265,7 @@ function init_gear_sets()
 		left_ring="Niqmaddu Ring",
 		right_ring="Epona's Ring",
 		back=gear.segomo_tp,
-		waist="Windbuffet Belt +1",
+		waist="Moonbow Belt",
 		legs="Samnuha Tights",
 		feet=gear.herculean_feet_melee,
 	}
@@ -269,10 +287,10 @@ function init_gear_sets()
     sets.engaged.Counter = set_combine(sets.engaged, {
 		ammo="Amar Cluster",
 		-- head="Rao Kabuto +1",
-		-- body=Relic_Hesychast.body,
+		body=Relic_Hesychast.body,
 		-- hands="Rao Kote +1",
-		-- legs=Artifact_Anchorite.legs,
-		-- feet=Relic_Hesychast.feet,
+		legs=Artifact_Anchorite.legs,
+		feet=Relic_Hesychast.feet,
 	})
 
     sets.engaged.Acc.Counter = sets.engaged.Counter

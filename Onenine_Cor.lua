@@ -251,7 +251,7 @@ function init_gear_sets()
 		head=gear.herc_head_mabwsd,
 		neck="Sanctity Necklace",
 		ear1="Friomisi Earring",
-		ear2="Moonshade Earring",
+		ear2="Crematio Earring",
         body="Lanun Frac +2",
 		hands="Carmine Finger Gauntlets +1",
 		ring1="Acumen Ring",

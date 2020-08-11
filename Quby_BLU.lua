@@ -217,7 +217,7 @@ function init_gear_sets()
     sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.WS, {
         head=gear.herc_head_mabwsd,
 		neck="Sanctity Necklace",
-		ear1="Moonshade Earring",
+		ear1="Crematio Earring",
 		ear2="Friomisi Earring",
         body=gear.jhakri_body,
 		hands=gear.jhakri_hands,

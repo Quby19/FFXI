@@ -113,18 +113,18 @@ function init_gear_sets()
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
-		head=gear.herc_head_wsd,
-		body=gear.adhemar_body_melee,
-		hands="Malignance Gloves",
-		legs=gear.hizamaru_legs,
-		feet=gear.herculean_feet_melee,
+		head="Lilitu Headpiece",
 		neck="Fotia Gorget",
-		waist="Fotia Belt",
-		ear1="Ishvara Earring",
+		ear1="Odr Earring",
 		ear2="Moonshade Earring",
-		ring1="Rajas Ring",
+		body=gear.adhemar_body_melee,
+		hands=gear.adhemar_hands_melee,
+		ring1="Ilabrat Ring",
 		ring2="Apate Ring",
 		back="Atheling Mantle",
+		waist="Fotia Belt",
+		legs=gear.hizamaru_legs,
+		feet=gear.herculean_feet_melee,
 		}
 		
     -- sets.precast.WS.Acc = set_combine(sets.precast.WS, {}
@@ -258,14 +258,14 @@ function init_gear_sets()
     sets.engaged = {
 		ammo="Ginsen",
         head=gear.adhemar_head_melee,
-		neck="Moonbeam Nodowa",
+		neck="Lissome Necklace",
 		ear1="Telos Earring",
-		ear2="Suppanomimi",
+		ear2="Brutal Earring",
         body=gear.adhemar_body_melee,
 		hands=gear.adhemar_hands_melee,
 		ring1="Epona's Ring",
 		ring2="Petrov Ring",
-        back="Atheling Mantle",
+        -- back="Atheling Mantle",
 		waist="Windbuffet Belt +1",
 		legs="Samnuha Tights",
 		feet=gear.herculean_feet_melee

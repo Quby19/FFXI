@@ -81,7 +81,7 @@ function init_gear_sets()
 		neck="Anu Torque",
 		left_ear="Sherida Earring",
 		right_ear="Odnowa Earring",
-		body=gear.flamma_body,
+		body="Hjarrandi Breastplate",
 		hands=gear.sulevia_hands,
 		left_ring="Petrov Ring",
 		right_ring="Flamma Ring",
@@ -102,11 +102,11 @@ function init_gear_sets()
     
     sets.idle = {
 		ammo="Ginsen",
-		head="Flam. Zucchetto +1",
+		head="Hjarrandi Helm",
 		neck="Loricate Torque",
 		left_ear="Etiolation Earring",
 		right_ear="Odnowa Earring +1",
-		body="Flamma Korazin +1",
+		body="Hjarrandi Breastplate",
 		hands=gear.sulevia_hands,
 		ring1="Gelatinous Ring +1",
 		right_ring="Shneddick Ring",
@@ -138,7 +138,7 @@ function init_gear_sets()
 		neck="Anu Torque",
 		ear1="Sherida Earring",
 		ear2="Cessance Earring",
-		body="Flamma Korazin +1",
+		body="Hjarrandi Breastplate",
 		hands=gear.sulevia_hands,
 		left_ring="Petrov Ring",
 		right_ring="Flamma Ring",
@@ -152,6 +152,9 @@ function init_gear_sets()
 		})
 	
     sets.engaged.Mod = set_combine(sets.engaged, {
+		head="Hjarrandi Helm",
+		neck="Loricate Torque",
+		ring1="Gelatinous Ring +1",
 		})
 end
 
