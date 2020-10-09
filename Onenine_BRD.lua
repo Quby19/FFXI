@@ -56,7 +56,7 @@ function user_setup()
     pick_tp_weapon()
     
     -- Adjust this if using the Terpander (new +song instrument)
-    info.ExtraSongInstrument = 'Terpander'
+    info.ExtraSongInstrument = 'Daurdabla'
     -- How many extra songs we can keep from Daurdabla/Terpander
     info.ExtraSongs = 2
     
@@ -101,7 +101,7 @@ function init_gear_sets()
 		sub="Genbu's Shield",
 		head="Nahtirah Hat",
 		neck="Dualism Collar",
-		-- ear1="Loquacious Earring",
+		ear1="Loquacious Earring",
 		ear2="Etiolation Earring",
 		body="Inyanga Jubbah +2",
 		hands="Inyanga Dastanas +2",
@@ -126,7 +126,7 @@ function init_gear_sets()
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
 
     sets.precast.FC.BardSong = set_combine(sets.precast.FC, {
-		range="Eminent Flute",
+		range="Gjallarhorn",
 		head="Fili Calot +1",
 		back=gear.intarabus_fc,
 		-- legs="Ayanmo Cosciales +2",  -- 6
@@ -146,7 +146,7 @@ function init_gear_sets()
 
     -- Waltz set (chr and vit)
     sets.precast.Waltz = {
-		range="Eminent Flute",
+		range="Gjallarhorn",
         head="Nahtirah Hat",
 		body="Inyanga Jubbah +2",
 		back="Kumbira Cape",
@@ -187,14 +187,14 @@ function init_gear_sets()
 		ring2="Gelatinous Ring +1",
     })
     
-    -- Gear to enhance certain classes of songs.  No instruments added here since Eminent Flute is being used.
+    -- Gear to enhance certain classes of songs.  No instruments added here since Gjallarhorn is being used.
     sets.midcast.Ballad = {legs="Fili Rhingrave +1"}
-    sets.midcast.Lullaby = {hands="Brioso Cuffs +1"}
+    sets.midcast.Lullaby = {hands="Brioso Cuffs +2"}
     sets.midcast.Madrigal = {head="Fili Calot +1"}
     sets.midcast.March = {hands="Fili Manchettes +1"}
     sets.midcast.Minuet = {body="Fili Hongreline +1"}
     sets.midcast.Minne = {}
-    sets.midcast.Paeon = {head="Brioso Roundlet +1"}
+    sets.midcast.Paeon = {head="Brioso Roundlet +2"}
     sets.midcast.Carol = {
 		head="Fili Calot +1",
 		body="Fili Hongreline +1",
@@ -209,7 +209,7 @@ function init_gear_sets()
     -- For song buffs (duration and AF3 set bonus)
     sets.midcast.SongEffect = {
 		main="Kali",
-		range="Eminent Flute",
+		range="Gjallarhorn",
 		head="Fili Calot +1",
 		neck="Moonbow Whistle",
 		ear1="Moonshade Earring",
@@ -221,7 +221,7 @@ function init_gear_sets()
 		back=gear.intarabus_fc,
 		waist="Embla Sash",
 		legs="Inyanga Shalwar +2",
-		feet="Brioso Slippers +1"
+		feet="Brioso Slippers +3"
 	}
     
     sets.midcast['Honor March'] = set_combine(sets.midcast.SongEffect,{range="Marsyas"})
@@ -230,19 +230,19 @@ function init_gear_sets()
     sets.midcast.SongDebuff = {
 		main="Kali",
 		-- sub="Ammurapi Shield",
-		range="Eminent Flute",
-		head="Inyanga Tiara +2",
+		range="Gjallarhorn",
+		head="Brioso Roundlet +2",
 		neck="Moonbow Whistle",
 		ear1="Gwati Earring",
-		-- ear2="Hermetic Earring",
-		body="Brioso Justaucorps +1",
-		hands="Brioso Cuffs +1",
+		ear2="Loquacious Earring",
+		body="Brioso Justaucorps +2",
+		hands="Brioso Cuffs +2",
 		ring1="Etana Ring",
 		ring2="Kishar Ring",
 		back=gear.intarabus_fc,
 		waist="Eschan Stone",
 		legs="Inyanga Shalwar +2",
-		feet="Brioso Slippers +1"
+		feet="Brioso Slippers +3"
 	}
 
     -- For song defbuffs (accuracy primary, duration secondary)
@@ -318,14 +318,14 @@ function init_gear_sets()
 		neck="Moonbow Whistle",
 		ear1="Gwati Earring",
 		-- ear2="Hermetic Earring",
-		body="Brioso Justaucorps +1",
+		body="Brioso Justaucorps +2",
 		hands="Inyanga Dastanas +2",
 		ring1="Etana Ring",
 		ring2="Kishar Ring",
 		back=gear.intarabus_fc,
 		waist="Eschan Stone",
-		legs="Brioso Cannions +1",
-		feet="Brioso Slippers +1"
+		legs="Brioso Cannions +2",
+		feet="Brioso Slippers +3"
 	}
 
     sets.midcast.MndEnfeebles = sets.midcast["Enfeebling Magic"]
@@ -459,17 +459,17 @@ function job_precast(spell, action, spellMap, eventArgs)
         if DaurdSongs:contains(spell.english) then
             equip(sets.precast.FC.Daurdabla)
         end
-        -- Auto-Pianissimo
-        if ((spell.target.type == 'PLAYER' and not spell.target.charmed) or (spell.target.type == 'NPC' and spell.target.in_party)) and
-            not state.Buff['Pianissimo'] then
+        -- -- Auto-Pianissimo
+        -- if ((spell.target.type == 'PLAYER' and not spell.target.charmed) or (spell.target.type == 'NPC' and spell.target.in_party)) and
+        --     not state.Buff['Pianissimo'] then
             
-            local spell_recasts = windower.ffxi.get_spell_recasts()
-            if spell_recasts[spell.recast_id] < 2 then
-                send_command('@input /ja "Pianissimo" <me>; wait 1.5; input /ma "'..spell.name..'" '..spell.target.name)
-                eventArgs.cancel = true
-                return
-            end
-        end
+        --     local spell_recasts = windower.ffxi.get_spell_recasts()
+        --     if spell_recasts[spell.recast_id] < 2 then
+        --         send_command('@input /ja "Pianissimo" <me>; wait 1.5; input /ma "'..spell.name..'" '..spell.target.name)
+        --         eventArgs.cancel = true
+        --         return
+        --     end
+        -- end
     end
 end
 
@@ -713,7 +713,7 @@ function calculate_duration(spellName, spellMap)
 
     local mult = 1
     if player.equipment.range == 'Daurdabla' then mult = mult + 0.3 end -- change to 0.25 with 90 Daur
-    if player.equipment.range == "Eminent Flute" then mult = mult + 0.4 end -- change to 0.3 with 95 Gjall
+    if player.equipment.range == "Gjallarhorn" then mult = mult + 0.4 end -- change to 0.3 with 95 Gjall
     
     if player.equipment.main == "Carnwenhan" then mult = mult + 0.1 end -- 0.1 for 75, 0.4 for 95, 0.5 for 99/119
     if player.equipment.main == "Kali" then mult = mult + 0.05 end
@@ -723,10 +723,13 @@ function calculate_duration(spellName, spellMap)
     if player.equipment.legs == "Mdk. Shalwar +1" then mult = mult + 0.1 end
     if player.equipment.feet == "Brioso Slippers" then mult = mult + 0.1 end
     if player.equipment.feet == "Brioso Slippers +1" then mult = mult + 0.11 end
-    if player.equipment.feet == "Brioso Slippers +2" then mult = mult + 0.12 end
+    if player.equipment.feet == "Brioso Slippers +2" then mult = mult + 0.13 end
+    if player.equipment.feet == "Brioso Slippers +3" then mult = mult + 0.15 end
     
     if spellMap == 'Paeon' and player.equipment.head == "Brioso Roundlet" then mult = mult + 0.1 end
     if spellMap == 'Paeon' and player.equipment.head == "Brioso Roundlet +1" then mult = mult + 0.1 end
+    if spellMap == 'Paeon' and player.equipment.head == "Brioso Roundlet +2" then mult = mult + 0.1 end
+    if spellMap == 'Paeon' and player.equipment.head == "Brioso Roundlet +3" then mult = mult + 0.2 end
     if spellMap == 'Madrigal' and player.equipment.head == "Fili Calot +1" then mult = mult + 0.1 end
     if spellMap == 'Minuet' and player.equipment.body == "Fili Hongreline +1" then mult = mult + 0.1 end
     if spellMap == 'March' and player.equipment.hands == 'Fili Manchettes +1' then mult = mult + 0.1 end

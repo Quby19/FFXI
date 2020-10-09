@@ -135,7 +135,7 @@ function init_gear_sets()
 
     -- Fast cast sets for spells
     sets.precast.FC = {
-		-- ear1="Etiolation Earring",
+		ear1="Etiolation Earring",
 		ear2="Loquacious Earring",
 		legs="Limbo Trousers",
 		-- hands="Leyline Gloves",
@@ -236,7 +236,7 @@ function init_gear_sets()
 		ring1="Gelatinous Ring +1",
 		ring2="Shneddick Ring",
         back="Solemnity Cape",
-		waist="Eschan Stone",
+		waist="Flume Belt",
 		legs="Malignance Tights",
         feet="Malignance Boots",
 		}

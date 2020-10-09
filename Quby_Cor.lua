@@ -19,7 +19,6 @@ function get_sets()
     -- Load and initialize the include file.
     include('Mote-Include.lua')
 	include('Mote-Utility.lua')
-    include('Mote-TreasureHunter')
 end
 
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
@@ -40,11 +39,12 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('Melee', 'Acc', 'Mod')
+    state.OffenseMode:options('Melee', 'Acc', 'Hybrid')
     state.RangedMode:options('Normal', 'Acc')
-    state.WeaponskillMode:options('Normal', 'Acc', 'Att', 'Mod')
+    state.WeaponskillMode:options('Normal', 'Acc', 'Att', 'NODA')
     state.PhysicalDefenseMode:options('Normal', 'MDT')
     state.IdleMode:options('Normal', 'Regen')
+    include('Mote-TreasureHunter')
     
 	-- gear.RAbullet = "Eminent Bullet"    
     -- gear.WSbullet = "Eminent Bullet"
@@ -114,7 +114,8 @@ function init_gear_sets()
     -- Start defining the sets
     --------------------------------------
 	 sets.TreasureHunter = {
-        head="White Rarab Cap +1",
+        -- head="White Rarab Cap +1",
+		hands=gear.herc_hands_TH2,
         waist="Chaac Belt", 
 		legs="Volte Hose"
     }
@@ -225,7 +226,6 @@ function init_gear_sets()
 		feet=Relic_Lanun.feet
 		}
 
-
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
 
     -- 70% AGI proc
@@ -241,7 +241,7 @@ function init_gear_sets()
     sets.precast.WS['Last Stand'].Acc = set_combine(sets.precast.WS, {
 		ammo=gear.WSbullet,
 		ear1="Enervating Earring",
-		ring1="Longshot Ring",
+		-- ring1="Longshot Ring",
 		feet=gear.meghanada_feet
 		})
 
@@ -347,7 +347,7 @@ function init_gear_sets()
 		ear1="Gwati Earring",
 		ear2="Hermetic Earring",
 		body=Relic_Lanun.body,
-		ring1="Mummu Ring",
+		ring1="Kishar Ring",
 		ring2="Sangoma Ring",
 		legs="Malignance Tights",
 		feet=Artifact_Laksamana.feet
@@ -376,9 +376,6 @@ function init_gear_sets()
 
     sets.midcast.RA.Acc = set_combine(sets.midcast.RA, {
 		ammo=gear.RAbullet,
-		body="Laksamana Frac +3",
-		ring1="Meghanada Ring",
-		ring2="Longshot Ring",
 		})
 
     sets.TripleShot = set_combine(sets.midcast.RA, {
@@ -405,25 +402,25 @@ function init_gear_sets()
 		ear2="Odnowa Earring +1",
         body=gear.meghanada_body,
 		hands="Malignance Gloves",
-		ring1="Vocane Ring",
+		ring1="Shneddick Ring",
 		ring2="Defending Ring",
         back="Moonbeam Cape",
 		waist="Flume Belt",
-		legs="Carmine Cuisses +1",
+		legs="Malignance Tights",
         feet="Malignance Boots",
 		}
 		
 	sets.idle.Regen = set_combine(sets.idle, {
 		head=gear.meghanada_head,
+		neck="Sanctity Necklace",
 		body=gear.meghanada_body,
 		hands=gear.meghanada_hands,
+		ring1="Shneddick Ring",
+		ring2="Sheltered Ring",
 		feet=gear.meghanada_feet,
-		neck="Sanctity Necklace",
 		})		
 	
-    sets.resting = set_combine(sets.idle, {
-		neck="Sanctity Necklace",
-		ring1="Sheltered Ring",
+    sets.resting = set_combine(sets.idle.Regen, {
 		})
     
     -- Defense sets
@@ -437,7 +434,7 @@ function init_gear_sets()
 		ear2="Odnowa Earring +1",
         body=gear.meghanada_body,
 		hands="Malignance Gloves",
-		ring1="Vocane Ring",
+		ring1="Gelatinous Ring +1",
 		ring2="Defending Ring",
         back="Moonbeam Cape",
 		waist="Flume Belt",
@@ -445,7 +442,7 @@ function init_gear_sets()
         feet="Malignance Boots",
 		}    
 
-    sets.Kiting = {legs="Carmine Cuisses +1",}
+    sets.Kiting = {ring1="Shneddick Ring",}
 
     ----------------------------------
     -- Engaged Sets
@@ -479,15 +476,15 @@ function init_gear_sets()
     sets.engaged.Acc = set_combine(sets.engaged.Melee, {
 		ammo=gear.RAbullet,
 		head="Malignance Chapeau",
-		neck="Sanctity Necklace",
-		ear1="Cessance Earring",
-		ear2="Telos Earring",
-        body=gear.adhemar_body_melee,
-		hands="Malignance Gloves",
-		ring1="Meghanada Ring",
-		ring2="Mummu Ring",
-        back=gear.camulus_tp,
-		waist="Eschan Stone",
+		-- neck="Sanctity Necklace",
+		-- ear1="Telos Earring",
+		ear2="Cessance Earring",
+        -- body=gear.adhemar_body_melee,
+		-- hands="Malignance Gloves",
+		-- ring1="Meghanada Ring",
+		ring2="Ilabrat Ring",
+        -- back=gear.camulus_tp,
+		-- waist="Eschan Stone",
 		legs="Malignance Tights",
         feet="Malignance Boots",
 		})
@@ -496,7 +493,7 @@ function init_gear_sets()
 		})
 
     -- Engaged but only for WS
-    sets.engaged.Mod = set_combine(sets.engaged.Melee, {
+    sets.engaged.Hybrid = set_combine(sets.engaged.Melee, {
 		ammo=gear.RAbullet,
 		head="Malignance Chapeau",
 		neck="Loricate Torque +1",

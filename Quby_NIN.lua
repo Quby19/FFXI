@@ -23,7 +23,7 @@ function job_setup()
     state.Buff.Innin = buffactive.Innin or false
     state.Buff.Futae = buffactive.Futae or false
 	
-    determine_haste_group()
+    -- determine_haste_group()
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -38,9 +38,8 @@ function user_setup()
     state.PhysicalDefenseMode:options('PDT')
     state.IdleMode:options('Normal', 'PDT')
 
-    gear.MovementFeet = {name="Danzo Sune-ate"}
-	-- gear.SlowFeet = "Outrider Greaves"
-    gear.DayFeet = "Danzo Sune-ate"
+    gear.MovementFeet = {name="Malignance Boots"}
+    gear.DayFeet = "Malignance Boots"
     gear.NightFeet = "Hachiya Kyahan"
     
     select_movement_feet()
@@ -66,7 +65,8 @@ end
 function init_gear_sets()
 
     sets.TreasureHunter = {
-        head="White Rarab Cap +1",
+        -- head="White Rarab Cap +1",
+		hands=gear.herc_hands_TH2,
         waist="Chaac Belt", 
 		legs="Volte Hose"
     }
@@ -120,8 +120,8 @@ function init_gear_sets()
 		body=gear.adhemar_body_melee,
 		hands=gear.adhemar_hands_melee,
 		ring1="Ilabrat Ring",
-		ring2="Apate Ring",
-		back="Atheling Mantle",
+		ring2="Gere Ring",
+		back="Sacro Mantle",
 		waist="Fotia Belt",
 		legs=gear.hizamaru_legs,
 		feet=gear.herculean_feet_melee,
@@ -155,7 +155,7 @@ function init_gear_sets()
 		ear2="Odnowa Earring +1",
         body=gear.adhemar_body_melee,
 		hands=gear.adhemar_hands_melee,
-		ring1="Vocane Ring",
+		ring1="Gelatinous Ring +1",
 		ring2="Defending Ring",
         back="Moonbeam Cape",
 		waist="Sailfi Belt +1",
@@ -195,7 +195,7 @@ function init_gear_sets()
 		ear2="Odnowa Earring +1",
         body=gear.adhemar_body_melee,
 		hands="Malignance Gloves",
-		ring1="Vocane Ring",
+		ring1="Shneddick Ring",
 		ring2="Defending Ring",
         back="Moonbeam Cape",
 		waist="Flume Belt",
@@ -234,7 +234,7 @@ function init_gear_sets()
 		ear2="Odnowa Earring +1",
         body=gear.adhemar_body_melee,
 		hands="Malignance Gloves",
-		ring1="Vocane Ring",
+		ring1="Gelatinous Ring +1",
 		ring2="Defending Ring",
         back="Moonbeam Cape",
 		waist="Flume Belt",
@@ -242,7 +242,7 @@ function init_gear_sets()
 		feet=gear.herculean_feet_melee
 		}
 
-    sets.Kiting = {feet=gear.MovementFeet}
+    sets.Kiting = {ring1="Shneddick Ring"}
 
 
     --------------------------------------
@@ -265,63 +265,63 @@ function init_gear_sets()
 		hands=gear.adhemar_hands_melee,
 		ring1="Epona's Ring",
 		ring2="Petrov Ring",
-        -- back="Atheling Mantle",
+        back="Sacro Mantle",
 		waist="Windbuffet Belt +1",
 		legs="Samnuha Tights",
 		feet=gear.herculean_feet_melee
 		}
 		
-    sets.engaged.Acc = set_combine(sets.engaged, {})
+    -- sets.engaged.Acc = set_combine(sets.engaged, {})
 	
-    sets.engaged.Evasion = set_combine(sets.engaged, {})
+    -- sets.engaged.Evasion = set_combine(sets.engaged, {})
 	
-    sets.engaged.Acc.Evasion = set_combine(sets.engaged, {})
+    -- sets.engaged.Acc.Evasion = set_combine(sets.engaged, {})
 	
-    sets.engaged.PDT = set_combine(sets.engaged, {})
+    -- sets.engaged.PDT = set_combine(sets.engaged, {})
 	
-    sets.engaged.Acc.PDT = set_combine(sets.engaged, {})
-	
-
-    -- Custom melee group: High Haste (~20% DW)
-    sets.engaged.HighHaste = set_combine(sets.engaged, {})
-	
-    sets.engaged.Acc.HighHaste = set_combine(sets.engaged, {})
-	
-    sets.engaged.Evasion.HighHaste = set_combine(sets.engaged, {})
-	
-    sets.engaged.Acc.Evasion.HighHaste = set_combine(sets.engaged, {})
-	
-    sets.engaged.PDT.HighHaste = set_combine(sets.engaged, {})
-	
-    sets.engaged.Acc.PDT.HighHaste = set_combine(sets.engaged, {})
+    -- sets.engaged.Acc.PDT = set_combine(sets.engaged, {})
 	
 
-    -- Custom melee group: Embrava Haste (7% DW)
-    sets.engaged.EmbravaHaste = set_combine(sets.engaged, {})
+    -- -- Custom melee group: High Haste (~20% DW)
+    -- sets.engaged.HighHaste = set_combine(sets.engaged, {})
 	
-    sets.engaged.Acc.EmbravaHaste = set_combine(sets.engaged, {})
+    -- sets.engaged.Acc.HighHaste = set_combine(sets.engaged, {})
 	
-    sets.engaged.Evasion.EmbravaHaste = set_combine(sets.engaged, {})
+    -- sets.engaged.Evasion.HighHaste = set_combine(sets.engaged, {})
 	
-    sets.engaged.Acc.Evasion.EmbravaHaste = set_combine(sets.engaged, {})
+    -- sets.engaged.Acc.Evasion.HighHaste = set_combine(sets.engaged, {})
 	
-    sets.engaged.PDT.EmbravaHaste = set_combine(sets.engaged, {})
+    -- sets.engaged.PDT.HighHaste = set_combine(sets.engaged, {})
 	
-    sets.engaged.Acc.PDT.EmbravaHaste = set_combine(sets.engaged, {})
+    -- sets.engaged.Acc.PDT.HighHaste = set_combine(sets.engaged, {})
 	
 
-    -- Custom melee group: Max Haste (0% DW)
-    sets.engaged.MaxHaste = set_combine(sets.engaged, {})
+    -- -- Custom melee group: Embrava Haste (7% DW)
+    -- sets.engaged.EmbravaHaste = set_combine(sets.engaged, {})
 	
-    sets.engaged.Acc.MaxHaste = set_combine(sets.engaged, {})
+    -- sets.engaged.Acc.EmbravaHaste = set_combine(sets.engaged, {})
 	
-    sets.engaged.Evasion.MaxHaste = set_combine(sets.engaged, {})
+    -- sets.engaged.Evasion.EmbravaHaste = set_combine(sets.engaged, {})
 	
-    sets.engaged.Acc.Evasion.MaxHaste = set_combine(sets.engaged, {})
+    -- sets.engaged.Acc.Evasion.EmbravaHaste = set_combine(sets.engaged, {})
 	
-    sets.engaged.PDT.MaxHaste = set_combine(sets.engaged, {})
+    -- sets.engaged.PDT.EmbravaHaste = set_combine(sets.engaged, {})
 	
-    sets.engaged.Acc.PDT.MaxHaste = set_combine(sets.engaged, {})
+    -- sets.engaged.Acc.PDT.EmbravaHaste = set_combine(sets.engaged, {})
+	
+
+    -- -- Custom melee group: Max Haste (0% DW)
+    -- sets.engaged.MaxHaste = set_combine(sets.engaged, {})
+	
+    -- sets.engaged.Acc.MaxHaste = set_combine(sets.engaged, {})
+	
+    -- sets.engaged.Evasion.MaxHaste = set_combine(sets.engaged, {})
+	
+    -- sets.engaged.Acc.Evasion.MaxHaste = set_combine(sets.engaged, {})
+	
+    -- sets.engaged.PDT.MaxHaste = set_combine(sets.engaged, {})
+	
+    -- sets.engaged.Acc.PDT.MaxHaste = set_combine(sets.engaged, {})
 	
 
 
@@ -363,7 +363,7 @@ end
 function job_buff_change(buff, gain)
     -- If we gain or lose any haste buffs, adjust which gear set we target.
     if S{'haste','march','embrava','haste samba'}:contains(buff:lower()) then
-        determine_haste_group()
+        -- determine_haste_group()
 		select_movement_feet()
         handle_equipping_gear(player.status)
     elseif state.Buff[buff] ~= nil then
@@ -465,17 +465,17 @@ function determine_haste_group()
     
     classes.CustomMeleeGroups:clear()
     
-    if buffactive.embrava and (buffactive.march == 2 or (buffactive.march and buffactive.haste)) then
-        classes.CustomMeleeGroups:append('MaxHaste')
-    elseif buffactive.march == 2 and buffactive.haste then
-        classes.CustomMeleeGroups:append('MaxHaste')
-    elseif buffactive.embrava and (buffactive.haste or buffactive.march) then
-        classes.CustomMeleeGroups:append('EmbravaHaste')
-    elseif buffactive.march == 1 and buffactive.haste and buffactive['haste samba'] then
-        classes.CustomMeleeGroups:append('HighHaste')
-    elseif buffactive.march == 2 then
-        classes.CustomMeleeGroups:append('HighHaste')
-    end
+    -- if buffactive.embrava and (buffactive.march == 2 or (buffactive.march and buffactive.haste)) then
+    --     classes.CustomMeleeGroups:append('MaxHaste')
+    -- elseif buffactive.march == 2 and buffactive.haste then
+    --     classes.CustomMeleeGroups:append('MaxHaste')
+    -- elseif buffactive.embrava and (buffactive.haste or buffactive.march) then
+    --     classes.CustomMeleeGroups:append('EmbravaHaste')
+    -- elseif buffactive.march == 1 and buffactive.haste and buffactive['haste samba'] then
+    --     classes.CustomMeleeGroups:append('HighHaste')
+    -- elseif buffactive.march == 2 then
+    --     classes.CustomMeleeGroups:append('HighHaste')
+    -- end
 end
 
 

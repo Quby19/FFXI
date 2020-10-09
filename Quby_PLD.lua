@@ -91,7 +91,7 @@ function init_gear_sets()
 		neck="Moonbeam Necklace",
 		ear1="Crematio Earring",
 		ear2="Friomisi Earring",
-        body="Reverence Surcoat +1",
+        body="Reverence Surcoat +2",
 		hands="Souveran Handschuhs +1",
 		ring1="Apeile Ring +1",
 		ring2="Apeile Ring",
@@ -129,13 +129,13 @@ function init_gear_sets()
 		neck="Orunmila's Torque",		-- 5
         ear1="Etiolation Earring",      --1%
         ear2="Loquacious Earring",      --2%
-		body="Reverence Surcoat +1",    --5%
+		body="Reverence Surcoat +2",    --5%
 		hands="Leyline Gloves",		    --8%
 		ring1="Kishar Ring"
 		}
 	
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {
-		waist="Siegel Sash",
+		-- waist="Siegel Sash",
 		})
 		
 	sets.precast.FC.Cure = set_combine(sets.precast.FC, {
@@ -185,7 +185,7 @@ function init_gear_sets()
 		neck="Loricate Torque +1",
 		ear1="Etiolation Earring",
 		ear2="Magnetic Earring",
-        body="Reverence Surcoat +1",
+        body="Reverence Surcoat +2",
 		hands="Souveran Handschuhs +1",
 		left_ring="Moonbeam Ring",
 		right_ring="Moonbeam Ring",
@@ -201,7 +201,7 @@ function init_gear_sets()
 		neck="Moonbeam Necklace",
 		ear1="Cryptic Earring",
 		ear2="Friomisi Earring",
-        body="Reverence Surcoat +1",
+        body="Reverence Surcoat +2",
 		hands="Souveran Handschuhs +1",
 		ring1="Apeile Ring +1",
 		ring2="Apeile Ring",
@@ -282,7 +282,7 @@ function init_gear_sets()
 		neck="Sanctity Necklace",
 		ear1="Etiolation Earring",
 		ear2="Odnowa Earring +1",
-        body="Reverence Surcoat +1",
+        body="Reverence Surcoat +2",
 		hands="Regal Gauntlets",
 		left_ring="Moonbeam Ring",
 		right_ring="Moonbeam Ring",
@@ -302,7 +302,7 @@ function init_gear_sets()
 	
 	sets.idle.MDT = set_combine(sets.idle.PDT, {
 		neck="Loricate Torque +1",
-		ring1="Vocane Ring",
+		ring1="Gelatinous Ring +1",
 		ring2="Defending Ring",
 		legs="Carmine Cuisses +1",
 		})
@@ -340,9 +340,9 @@ function init_gear_sets()
 		neck="Diemer Gorget",
 		ear1="Etiolation Earring",
 		ear2="Magnetic Earring",
-        body="Reverence Surcoat +1",
+        body="Reverence Surcoat +2",
 		hands="Souveran Handschuhs +1",
-		ring1="Vocane Ring",
+		ring1="Gelatinous Ring +1",
 		ring2="Defending Ring",
         back="Moonbeam Cape",
 		waist="Flume Belt",
@@ -414,7 +414,7 @@ function init_gear_sets()
 		neck="Diemer Gorget",
 		ear1="Etiolation Earring",
 		ear2="Odnowa Earring +1",
-        body="Reverence Surcoat +1",
+        body="Reverence Surcoat +2",
 		hands="Souveran Handschuhs +1",
 		left_ring="Moonbeam Ring",
 		right_ring="Moonbeam Ring",
@@ -430,7 +430,7 @@ function init_gear_sets()
 		-- neck="Diemer Gorget",
 		-- ear1="Etiolation Earring",
 		-- ear2="Magnetic Earring",
-        -- body="Reverence Surcoat +1",
+        -- body="Reverence Surcoat +2",
 		-- hands="Souveran Handschuhs +1",
 		-- left_ring="Moonbeam Ring",
 		-- right_ring="Moonbeam Ring",
@@ -446,7 +446,7 @@ function init_gear_sets()
 		neck="Loricate Torque +1",
 		ear1="Etiolation Earring",
 		ear2="Odnowa Earring +1",
-        body="Reverence Surcoat +1",
+        body="Reverence Surcoat +2",
 		hands="Souveran Handschuhs +1",
 		left_ring="Moonbeam Ring",
 		right_ring="Moonbeam Ring",
@@ -462,7 +462,7 @@ function init_gear_sets()
 		-- neck="Loricate Torque +1",
 		-- ear1="Etiolation Earring",
 		-- ear2="Magnetic Earring",
-        -- body="Reverence Surcoat +1",
+        -- body="Reverence Surcoat +2",
 		-- hands="Souveran Handschuhs +1",
 		-- left_ring="Moonbeam Ring",
 		-- right_ring="Moonbeam Ring",
@@ -476,13 +476,13 @@ function init_gear_sets()
     sets.engaged.Acc.Reraise = set_combine(sets.engaged.Acc, sets.Reraise)
 
     sets.engaged.DW.PDT = set_combine(sets.engaged.DW, {
-		body="Reverence Surcoat +1",
+		body="Reverence Surcoat +2",
 		neck="Loricate Torque +1",
 		ring2="Defending Ring"
 		})
 		
     sets.engaged.DW.Acc.PDT = set_combine(sets.engaged.DW.Acc, {
-		body="Reverence Surcoat +1",
+		body="Reverence Surcoat +2",
 		neck="Loricate Torque +1",
 		ring2="Defending Ring"
 		})

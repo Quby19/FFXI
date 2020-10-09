@@ -42,7 +42,7 @@ function init_gear_sets()
 
     -- Precast sets to enhance JAs
     sets.precast.JA.Bolster = {body="Bagua Tunic +1"}
-    sets.precast.JA['Life cycle'] = {body="Geomancy Tunic"}
+    sets.precast.JA['Life cycle'] = {body="Geomancy Tunic +2"}
     sets.precast.JA['Full Circle'] = {head="Azimuth Hood +1"}
     sets.precast.JA['Radial Arcana'] = {feet="Bagua Sandals +1"}
 
@@ -55,14 +55,14 @@ function init_gear_sets()
         head="Nahtirah Hat",		--10
 		neck="Dualism Collar",
 		ear1="Malignance Earring",	--4
-		ear2="Etiolation Earring",	--1
+		ear2="Loquacious Earring",
         body="Shango Robe",			--8
 		hands="Geomancy mitaines +2",
 		ring1="Kishar Ring",		--4
 		ring2="Etana Ring",
         back="Lifestream Cape",		--7
 		waist="Embla sash",			--5
-		legs="Geomancy Pants +1",	--11
+		legs="Geomancy Pants +2",	--11
 		feet="Merlinic Crackows"	--9
 		}
 		
@@ -73,14 +73,14 @@ function init_gear_sets()
         head="Nahtirah Hat",		--10
 		neck="Dualism Collar",
 		ear1="Malignance Earring",	--4
-		ear2="Etiolation Earring",	--1
+		ear2="Loquacious Earring",
         body="Shango Robe",			--8
 		hands="Geomancy mitaines +2",
 		ring1="Kishar Ring",		--4
 		ring2="Etana Ring",
         back="Lifestream Cape",		--7
 		waist="Embla sash",			--5
-		legs="Geomancy Pants +1",	--11
+		legs="Geomancy Pants +2",	--11
 		feet="Merlinic Crackows"	--9
 		}
     
@@ -155,7 +155,7 @@ function init_gear_sets()
         body="Mallquis Saio +2",
 		hands="Mallquis Cuffs +1",
 		ring1="Mallquis Ring",
-		ring2="Etana Ring",
+		ring2="Freke Ring",
         back="Kumbira Cape",
 		waist="Eschan Stone",
 		back="Kumbira Cape",
@@ -291,7 +291,7 @@ function init_gear_sets()
 		neck="Loricate Torque",
 		ear1="Eabani Earring",
         body="Mallquis Saio +2",
-		legs="Geomancy Pants +1"
+		legs="Geomancy Pants +2"
 		})
 
     -- .Pet sets are for when Luopan is present.  39

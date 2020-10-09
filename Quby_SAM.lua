@@ -34,7 +34,7 @@ end
 
 -- Setup vars that are user-dependent.
 function user_setup()
-	state.OffenseMode:options('Normal', 'Mod')
+	state.OffenseMode:options('Normal', 'Acc', 'Hybrid')
     state.WeaponskillMode:options('Normal', 'Acc', 'NODA')
     state.PhysicalDefenseMode:options('Normal', 'MDT')
     state.IdleMode:options('Normal', 'PDT')
@@ -45,12 +45,12 @@ function user_setup()
 	Artifact_Wakido = {}
 		Artifact_Wakido.head 	="Wakido Kabuto +1"
 		Artifact_Wakido.body 	="Wakido Domaru +1"
-		Artifact_Wakido.hands 	="Wakido Kote +2"
-		Artifact_Wakido.legs 	="Wakido Haidate +1"
+		Artifact_Wakido.hands 	="Wakido Kote +3"
+		Artifact_Wakido.legs 	="Wakido Haidate +3"
 
     Relic_Sakonji = {}
 		Relic_Sakonji.body 		="Sakonji Domaru +3"
-		Relic_Sakonji.hands 	="Sakonji Kote +1"
+		Relic_Sakonji.hands 	="Sakonji Kote +3"
 		Relic_Sakonji.feet 		="Sakonji Sune-Ate +1"
 
     Empy_Kasuga = {}
@@ -86,8 +86,9 @@ function init_gear_sets()
     sets.TreasureHunter = {
         head="White Rarab Cap +1",
 		waist="Chaac Belt",
-		legs="Volte Hose"
-		}
+		legs="Volte Hose",
+		feet=gear.valorous_feet_TH
+	}
     
     -- Precast Sets
     -- Precast sets to enhance JAs
@@ -95,7 +96,7 @@ function init_gear_sets()
 		head=Artifact_Wakido.head,
 		hands=Relic_Sakonji.hands,
 		back=gear.smertrios_wsd
-		}
+	}
     sets.precast.JA['Warding Circle'] = {head=Artifact_Wakido.head}
     sets.precast.JA['Blade Bash'] = {hands=Relic_Sakonji.hands}
     sets.precast.JA['Meikyo Shisui'] = {hands="Sakonji Sune-ate +1"}
@@ -114,9 +115,9 @@ function init_gear_sets()
 		ring2="Niqmaddu Ring",
         back=gear.smertrios_wsd,
 		waist="Sailfi Belt +1",
-		legs=gear.hizamaru_legs,
+		legs=Artifact_Wakido.legs,
 		feet=gear.valorous_feet
-		}
+	}
 		
 	sets.precast.WS['Tachi: Ageha'] = {
         ammo="Hydrocera",
@@ -132,13 +133,13 @@ function init_gear_sets()
 		waist="Eschan Stone",
 		legs="Volte Hose",
 		feet=gear.flamma_feet,
-		}
+	}
 		
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {
 		head=gear.flamma_head,
 		hands=gear.flamma_hands,
 		feet=gear.flamma_feet
-		})
+	})
 
 	sets.precast.WS.NODA = {
 		ammo="Staunch Tathlum +1",
@@ -148,13 +149,13 @@ function init_gear_sets()
 		ear2="Odnowa Earring +1",
 		body="Kendatsuba Samue +1",
 		hands=Relic_Sakonji.hands,
-		ring1="Vocane Ring",
+		ring1="Gelatinous Ring +1",
 		ring2="Defending Ring",
 		back="Moonbeam Cape",
 		waist="Flume Belt",
 		legs="Kendatsuba Hakama +1",
 		feet="Ken. Sune-Ate +1"
-		}
+	}
 
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
 
@@ -171,19 +172,20 @@ function init_gear_sets()
 		ear2="Odnowa Earring +1",
 		body="Kendatsuba Samue +1",
 		hands=Relic_Sakonji.hands,
-		ring1="Vocane Ring",
+		ring1="Shneddick Ring",
 		ring2="Defending Ring",
         back=gear.smertrios_tp,
 		waist="Flume Belt",
 		legs="Kendatsuba Hakama +1",
-		feet="Danzo Sune-Ate"
-		}
+		feet="Ken. Sune-Ate +1"
+	}
 		
 	sets.idle.PDT = set_combine(sets.idle, {
         head="Kendatsuba Jinpachi +1",
 		neck="Loricate Torque +1",
+		ring1="Gelatinous Ring +1",
 		feet="Ken. Sune-Ate +1"
-		})
+	})
 
 	sets.idle.Town = {
 		sub="Utu Grip",
@@ -194,13 +196,13 @@ function init_gear_sets()
 		right_ear="Odnowa Earring +1",
 		body="Kendatsuba Samue +1",
 		hands=Artifact_Wakido.hands,
-		left_ring="Vocane Ring",
+		left_ring="Shneddick Ring",
 		right_ring="Defending Ring",
         back=gear.smertrios_tp,
-		waist="Flume Belt",
+		waist="Ioskeha Belt +1",
 		legs="Ken. Hakama +1",
-		feet="Danzo Sune-Ate"
-		}
+		feet="Ken. Sune-Ate +1"
+	}
     
     -- Defense sets
     sets.defense.MDT = {
@@ -211,15 +213,15 @@ function init_gear_sets()
 		ear2="Odnowa Earring +1",
 		body="Kendatsuba Samue +1",
 		hands=Relic_Sakonji.hands,
-		ring1="Vocane Ring",
+		ring1="Gelatinous Ring +1",
 		ring2="Defending Ring",
         back="Moonbeam Cape",
 		waist="Flume Belt",
 		legs="Kendatsuba Hakama +1",
 		feet="Ken. Sune-Ate +1"
-		}
+	}
 
-    sets.Kiting = {feet="Danzo Sune-ate"}
+    sets.Kiting = {ring1="Shneddick Ring"}
 
     -- sets.Reraise = {head="Twilight Helm",body="Twilight Mail"}
 
@@ -244,18 +246,24 @@ function init_gear_sets()
 		ring1="Flamma Ring",
 		ring2="Niqmaddu Ring",
         back=gear.smertrios_tp,
-		waist="Ioskeha Belt",
+		waist="Ioskeha Belt +1",
 		legs="Ken. Hakama +1",
 		feet=gear.ryuo_feet_stp
-		}
+	}
 	
-    sets.engaged.Mod = set_combine(sets.engaged, {
+    sets.engaged.Acc = set_combine(sets.engaged, {
+		head="Kendatsuba Jinpachi +1",
+		body="Kendatsuba Samue +1",
+		feet="Ken. Sune-Ate +1"
+	})
+
+    sets.engaged.Hybrid = set_combine(sets.engaged, {
 		ammo="Staunch Tathlum +1",
 		head="Kendatsuba Jinpachi +1",
 		body="Kendatsuba Samue +1",
 		ring1="Ilabrat Ring",
 		feet="Ken. Sune-Ate +1"
-		})
+	})
 
     sets.buff.Sekkanoki = {hands=Empy_Kasuga.hands}
     sets.buff.Sengikori = {feet=Empy_Kasuga.feet}

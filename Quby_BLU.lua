@@ -8,12 +8,13 @@ function get_sets()
     
     -- Load and initialize the include file.
     include('Mote-Include.lua')
-    include('Mote-TreasureHunter')
 end
 
 
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
+	include('Mote-TreasureHunter')
+	
     state.Buff['Burst Affinity'] = buffactive['Burst Affinity'] or false
     state.Buff['Chain Affinity'] = buffactive['Chain Affinity'] or false
     state.Buff.Convergence = buffactive.Convergence or false
@@ -21,7 +22,6 @@ function job_setup()
     state.Buff.Efflux = buffactive.Efflux or false
     
     state.Buff['Unbridled Learning'] = buffactive['Unbridled Learning'] or false
-
 
     blue_magic_maps = {}
 
@@ -171,7 +171,8 @@ function init_gear_sets()
     -- Start defining the sets
 	--------------------------------------
 	sets.TreasureHunter = {
-        head="White Rarab Cap +1",
+		-- head="White Rarab Cap +1",
+		hands=gear.herc_hands_TH2,
 		waist="Chaac Belt",
 		legs="Volte Hose"
 		}
@@ -224,7 +225,7 @@ function init_gear_sets()
 		ring1="Metamorph Ring +1",
 		ring2="Acumen Ring",
 		back=gear.rosmerta_nuke,
-		waist="Eschan Stone",
+		waist="Sacro Cord",
 		legs=gear.jhakri_legs,
 		feet=gear.jhakri_feet
 		})
@@ -266,7 +267,7 @@ function init_gear_sets()
 		ring1="Metamorph Ring +1",
 		ring2="Acumen Ring",
 		back=gear.rosmerta_nuke,
-		waist="Eschan Stone",
+		waist="Sacro Cord",
 		legs=gear.jhakri_legs,
 		feet=gear.jhakri_feet
 	}
@@ -300,7 +301,6 @@ function init_gear_sets()
 	sets.midcast['Blue Magic'].Healing =  set_combine(sets.midcast.FastRecast, {
 		neck="Phalaina Locket", -- 4%
 		ear1="Mendicant's Earring", -- 5%
-		ring1="Vocane ring"
 	})
 		
     sets.midcast['Blue Magic']['White Wind'] = set_combine(sets.midcast['Blue Magic'].Healing, {
@@ -332,17 +332,18 @@ function init_gear_sets()
 		ear2="Loquac. Earring",
 		body=gear.jhakri_body,
 		hands="Malignance Gloves",
-		ring1="Vocane Ring",
+		ring1="Shneddick Ring",
 		ring2="Defending Ring",
 		back=gear.rosmerta_fc,
 		waist="Flume Belt",
-		legs="Carmine Cuisses +1",
+		legs="Malignance Tights",
 		feet="Malignance Boots",
 	}
 	
 	sets.idle.PDT = set_combine(sets.idle, {
 		neck="Loricate Torque +1",
-		-- legs="Malignance Tights",
+		legs="Malignance Tights",
+		ring="Gelatinous Ring +1"
 	})
 
 	-- Resting sets
@@ -350,7 +351,7 @@ function init_gear_sets()
 		body=gear.jhakri_body
 		})
     
-    sets.Kiting = {legs="Carmine cuisses +1"}
+    sets.Kiting = {ring1="Shneddick Ring"}
 
     -- Engaged sets
     sets.engaged = {
@@ -375,8 +376,7 @@ function init_gear_sets()
 		ring2="Defending Ring",
 		back="Moonbeam Cape",
 		lets="Malignance Tights",
-		feet="Malignance Boots",
-	
+		feet="Malignance Boots",	
 	})
 	
 	-- Defense sets
@@ -391,7 +391,7 @@ function init_gear_sets()
 		ear2="Loquac. Earring",
 		body=gear.jhakri_body,
 		hands="Malignance Gloves",
-		ring1="Vocane Ring",
+		ring1="Gelatinous Ring +1",
 		ring2="Defending Ring",
 		back="Moonbeam Cape",
 		waist="Flume Belt",

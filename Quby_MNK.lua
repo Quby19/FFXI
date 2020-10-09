@@ -27,7 +27,7 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     state.OffenseMode:options('Normal', 'Acc', 'Hybrid', 'Counter')
-    state.WeaponskillMode:options('Normal', 'Acc')
+    state.WeaponskillMode:options('Normal', 'Acc', 'NODA')
     state.HybridMode:options('Normal', 'Hybrid', 'Counter')
     state.PhysicalDefenseMode:options('DT')
     state.IdleMode:options('Normal', 'DT')
@@ -40,21 +40,24 @@ function user_setup()
     -- Additional local binds
 	send_command('bind f9 gs c cycle HybridMode')
 	send_command('bind ^f9 gs c cycle TreasureMode')
+	send_command('bind ^g gs c cycle Weapon')
+	
+	state.Weapon = M{['description']='Current Weapon','Karambit','Mercurial Pole'}
 
 	-- JSE Gear	
 	Artifact_Anchorite = {}
-		Artifact_Anchorite.head 	="Anchorite's Crown +1"
-		Artifact_Anchorite.body 	="Anchorite's Cyclas +1"
-		Artifact_Anchorite.hands 	="Anchorite's Gloves +1"
-		Artifact_Anchorite.legs 	="Anchorite's Hose +1"
-		Artifact_Anchorite.feet 	="Anchorite's Gaiters +1"
+		Artifact_Anchorite.head 	="Anchorite's Crown +2"		-- Focus (keep +1)
+		Artifact_Anchorite.body 	="Anchorite's Cyclas +2"	-- Chakra (keep +1)
+		Artifact_Anchorite.hands 	="Anchorite's Gloves +2"	-- +3 WSD
+		Artifact_Anchorite.legs 	="Anchorite's Hose +2"		-- Counter (can +3)
+		Artifact_Anchorite.feet 	="Anchorite's Gaiters +3"
 
     Relic_Hesychast = {}
-		Relic_Hesychast.head 		="Hesychast's Crown"
-		Relic_Hesychast.body 		="Hesychast's Cyclas"
-		Relic_Hesychast.hands 		="Hesychast's Gloves"
-		Relic_Hesychast.legs 		="Hesychast's Hose"
-		Relic_Hesychast.feet 		="Hesychast's Gaiters"
+		Relic_Hesychast.head 		="Hesychast's Crown +1"  	-- +3 wsd  (2.5m shard/400k)
+		Relic_Hesychast.body 		="Hesychast's Cyclas"  		-- keep NQ (super cheap to +3 50k shard)
+		Relic_Hesychast.hands 		="Hesychast's Gloves +1" 	-- chakra keep +1 (pretty cheap 500k shard)
+		Relic_Hesychast.legs 		="Hesychast's Hose"			-- +3 Melee set? Kick WSs  (6m shard) (dont know if needed)
+		Relic_Hesychast.feet 		="Hesychast's Gaiters"		-- +3 for now (counterstance) (very cheap  100k shard)
 
     Empy_Bhikku = {}
 		Empy_Bhikku.body 			="Bhikku Cyclas +1"
@@ -75,6 +78,7 @@ end
 function user_unload()
 	send_command('unbind f9')
 	send_command('unbind ^f9')
+    send_command('unbind ^g')
 end
 
 -- Define sets and vars used by this job file.
@@ -83,7 +87,8 @@ function init_gear_sets()
     -- Start defining the sets
     --------------------------------------
     sets.TreasureHunter = {
-        head="White Rarab Cap +1",
+		-- head="White Rarab Cap +1",
+		hands=gear.herc_hands_TH2,
 		legs="Volte Hose",
         waist="Chaac Belt", 
     }
@@ -124,9 +129,9 @@ function init_gear_sets()
 		neck="Orunmila's Torque",
 		left_ear="Etiolation Earring",
 		right_ear="Loquac. Earring",
-		body="Ken. Samue +1",
+		body="Kendatsuba Samue +1",
 		hands="Leyline Gloves",
-		left_ring="Vocane Ring",
+		left_ring="Gelatinous Ring +1",
 		right_ring="Defending Ring",
 		back=gear.segomo_tp,
 		waist="Moonbow Belt",
@@ -142,44 +147,122 @@ function init_gear_sets()
 		neck="Monk's Nodowa +1",
 		left_ear="Sherida Earring",
 		right_ear="Moonshade Earring",
-		body="Ken. Samue +1",
+		body="Kendatsuba Samue +1",
 		hands=gear.adhemar_hands_melee,
 		left_ring="Niqmaddu Ring",
-		right_ring="Apate Ring",
+		right_ring="Gere Ring",
 		back=gear.segomo_wsd,
 		waist="Moonbow Belt",
-		legs=gear.herculean_legs_wsd,
-		feet="Ken. Sune-Ate +1",
+		legs=gear.hizamaru_legs,
+		feet="Kendatsuba Sune-Ate +1",
 	}
 
     sets.precast.MaxTP = {left_ear="Telos Earring"}
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {
 	
-	})
+	})	
 
-    -- Specific weaponskill sets.    
-
-    sets.precast.WS["Ascetic's Fury"]  = set_combine(sets.precast.WS, {
-		head=gear.adhemar_head_melee,
+	sets.precast.WS.NODA = {
+		ammo="Staunch Tathlum +1",
+		head="Malignance Chapeau",
+		neck="Loricate Torque +1",
+		left_ear="Etiolation Earring",
+		right_ear="Odnowa Earring +1",
 		body="Kendatsuba Samue +1",
-		hands=gear.adhemar_hands_melee,
-		-- legs=Relic_Hesychast.legs,
-		right_ear="Odr Earring",
-		-- right_ring="Gere Ring",
-		-- back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Crit.hit rate+10',}},
-	})
+		hands="Malignance Gloves",
+		left_ring="Gelatinous Ring +1",
+		right_ring="Defending Ring",
+		back="Moonbeam Cape",
+		waist="Moonbow Belt",
+		legs="Malignance Tights",
+        feet="Malignance Boots",
+		}
+
+    -- Specific weaponskill sets. 
 
 	sets.precast.WS["Victory Smite"] = set_combine(sets.precast.WS, {
-		-- legs=Relic_Hesychast.legs,
-		left_ear="Odr Earring",
-		-- right_ring="Gere Ring",
-		legs="Ken. Hakama +1",
-		-- back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Crit.hit rate+10',}},
+		ammo="Knobkierrie",
+		head=gear.adhemar_head_melee,
+		neck="Fotia Gorget",
+		left_ear="Sherida Earring",
+		right_ear="Odr Earring",
+		body="Kendatsuba Samue +1",
+		hands=gear.adhemar_hands_melee,
+		left_ring="Niqmaddu Ring",
+		right_ring="Gere Ring",
+		back=gear.segomo_wsd,
+		waist="Moonbow Belt",
+		legs="Kendatsuba Hakama +1",
+		feet="Kendatsuba Sune-Ate +1",
+	})
+	
+	sets.precast.WS["Raging Fists"] = set_combine(sets.precast.WS, {
+		ammo="Knobkierrie",
+		head=gear.adhemar_head_melee,
+		neck="Monk's Nodowa +1",
+		left_ear="Sherida Earring",
+		right_ear="Moonshade Earring",
+		body=gear.adhemar_body_melee,
+		hands=gear.adhemar_hands_melee,
+		left_ring="Niqmaddu Ring",
+		right_ring="Gere Ring",
+		back=gear.segomo_wsd,
+		waist="Moonbow Belt",
+		legs="Kendatsuba Hakama +1",
+		feet="Kendatsuba Sune-Ate +1",
+	})
+	
+	sets.precast.WS["Shijin Spiral"] = set_combine(sets.precast.WS, {
+		ammo="Knobkierrie",
+		head="Kendatsuba Jinpachi +1",
+		neck="Fotia Gorget",
+		left_ear="Sherida Earring",
+		right_ear="Odr Earring",
+		body=gear.adhemar_body_melee,
+		hands="Kendatsuba Tekko +1",
+		left_ring="Niqmaddu Ring",
+		right_ring="Ilabrat Ring",
+		back=gear.segomo_wsd,
+		waist="Moonbow Belt",
+		legs="Kendatsuba Hakama +1",
+		feet="Kendatsuba Sune-Ate +1",
+	})
+	
+	sets.precast.WS["Howling Fist"] = set_combine(sets.precast.WS, {
+		ammo="Knobkierrie",
+		head="Lilitu Headpiece",  -- relic head +3
+		neck="Monk's Nodowa +1",
+		left_ear="Sherida Earring",
+		right_ear="Moonshade Earring",
+		body="Kendatsuba Samue +1",
+		hands=gear.adhemar_hands_melee,
+		left_ring="Niqmaddu Ring",
+		right_ring="Gere Ring",
+		back=gear.segomo_wsd,
+		waist="Moonbow Belt",
+		legs=gear.hizamaru_legs,
+		feet="Kendatsuba Sune-Ate +1",
 	})
 
-    sets.precast.WS["Cataclysm"] = {
+	sets.precast.WS["Tornado Kick"] = set_combine(sets.precast.WS, {
+		ammo="Knobkierrie",
+		head="Lilitu Headpiece",
+		neck="Monk's Nodowa +1",
+		left_ear="Sherida Earring",
+		right_ear="Moonshade Earring",
+		body="Kendatsuba Samue +1",
+		hands=gear.adhemar_hands_melee,
+		left_ring="Niqmaddu Ring",
+		right_ring="Gere Ring",
+		back=gear.segomo_wsd,
+		waist="Moonbow Belt",
+		legs=gear.hizamaru_legs,
+		feet="Kendatsuba Sune-Ate +1",
+	})
 
-	}
+	sets.precast.WS["Dragon Kick"] = sets.precast.WS["Tornado Kick"]
+	sets.precast.WS["Ascetic's Fury"] = sets.precast.WS["Victory Smite"]
+    sets.precast.WS["Cataclysm"] = set_combine(sets.precast.WS, {})
 
 	-----------------------------------
 			-- Midcast --
@@ -198,17 +281,17 @@ function init_gear_sets()
 		right_ear="Odnowa Earring +1",
 		body="Kendatsuba Samue +1",
 		hands="Malignance Gloves",
-		left_ring="Vocane Ring",
+		left_ring="Shneddick Ring",
 		right_ring="Defending Ring",
 		back="Moonbeam Cape",
 		waist="Moonbow Belt",
 		legs="Malignance Tights",
-		feet="Herald's Gaiters",
+        feet="Malignance Boots",
 	}
 
-    sets.idle.DT =  set_combine(sets.idle, {
+    sets.idle.DT = set_combine(sets.idle, {
 		neck="Loricate Torque +1",
-        feet="Malignance Boots",
+		left_ring="Gelatinous Ring +1",
 	})
     
     -- Defense sets
@@ -220,7 +303,7 @@ function init_gear_sets()
 		right_ear="Odnowa Earring +1",
 		body="Kendatsuba Samue +1",
 		hands="Malignance Gloves",
-		left_ring="Vocane Ring",
+		left_ring="Gelatinous Ring +1",
 		right_ring="Defending Ring",
 		back="Moonbeam Cape",
 		waist="Moonbow Belt",
@@ -230,21 +313,21 @@ function init_gear_sets()
 
 	sets.idle.Town = {
 		ammo="Staunch Tathlum +1",
-		head="Ken. Jinpachi +1",
+		head="Kendatsuba Jinpachi +1",
 		neck="Monk's Nodowa +1",
 		left_ear="Etiolation Earring",
 		right_ear="Odnowa Earring +1",
 		body="Kendatsuba Samue +1",
-		hands="Malignance Gloves",
-		left_ring="Vocane Ring",
+		hands="Kendatsuba Tekko +1",
+		left_ring="Shneddick Ring",
 		right_ring="Defending Ring",
 		back=gear.segomo_tp,
 		waist="Moonbow Belt",
-		legs="Ken. Hakama +1",
-		feet="Herald's Gaiters",
+		legs="Kendatsuba Hakama +1",
+		feet="Kendatsuba Sune-Ate +1",
 	}
 
-    sets.Kiting = {feet="Herald's Gaiters"}
+    sets.Kiting = {ring1="Shneddick Ring",}
 
     -- Engaged sets
 
@@ -256,26 +339,24 @@ function init_gear_sets()
     -- Normal melee sets
     sets.engaged = {
 		ammo="Ginsen",
-		head=gear.adhemar_head_melee,
+		head="Kendatsuba Jinpachi +1",
 		neck="Monk's Nodowa +1",
 		left_ear="Telos Earring",
 		right_ear="Sherida Earring",
 		body="Kendatsuba Samue +1",
 		hands=gear.adhemar_hands_melee,
 		left_ring="Niqmaddu Ring",
-		right_ring="Epona's Ring",
+		right_ring="Gere Ring",
 		back=gear.segomo_tp,
 		waist="Moonbow Belt",
-		legs="Samnuha Tights",
+		legs="Kendatsuba Hakama +1",
 		feet=gear.herculean_feet_melee,
 	}
 
     sets.engaged.Acc = set_combine(sets.engaged, {
 		ammo="Amar Cluster",
-		head="Ken. Jinpachi +1",
-		hands="Malignance Gloves",
-		legs="Ken. Hakama +1",
-		feet="Ken. Sune-Ate +1",
+		hands="Kendatsuba Tekko +1",
+		feet="Kendatsuba Sune-Ate +1",
 	})
     
     -- Defensive melee hybrid sets
@@ -300,22 +381,20 @@ function init_gear_sets()
     sets.engaged.HF.Impetus = set_combine(sets.engaged, { body=Empy_Bhikku.body })
     sets.engaged.Acc.HF = set_combine(sets.engaged.Acc)
     sets.engaged.Acc.HF.Impetus = set_combine(sets.engaged.Acc, { body=Empy_Bhikku.body })
+    sets.engaged.Hybrid.HF = set_combine(sets.engaged.Hybrid)
+    sets.engaged.Hybrid.HF.Impetus = set_combine(sets.engaged.Hybrid, { body=Empy_Bhikku.body })
     sets.engaged.Counter.HF = set_combine(sets.engaged.Counter)
     sets.engaged.Counter.HF.Impetus = set_combine(sets.engaged.Counter, { body=Empy_Bhikku.body	})
     sets.engaged.Acc.Counter.HF = set_combine(sets.engaged.Acc.Counter)
     sets.engaged.Acc.Counter.HF.Impetus = set_combine(sets.engaged.Acc.Counter, { body=Empy_Bhikku.body })
 
     -- Footwork combat form
-    sets.engaged.Footwork = set_combine(sets.engaged, {
-		-- feet=Artifact_Anchorite.feet
-	})
+    sets.engaged.Footwork = set_combine(sets.engaged, { feet=Artifact_Anchorite.feet })
     sets.engaged.Footwork.Impetus = set_combine(sets.engaged.Footwork, {
 		body=Empy_Bhikku.body,
 		-- legs=Relic_Hesychast.legs
 	})
-    sets.engaged.Footwork.Acc = set_combine(sets.engaged.Acc, {
-		-- feet=Artifact_Anchorite.feet
-	})
+    sets.engaged.Footwork.Acc = set_combine(sets.engaged.Acc, { feet=Artifact_Anchorite.feet })
     sets.engaged.Footwork.Acc.Impetus = set_combine(sets.engaged.Footwork.Acc, {
 		body=Empy_Bhikku.body,
 		-- legs=Relic_Hesychast.legs
@@ -326,9 +405,7 @@ function init_gear_sets()
         
     -- Quick sets for post-precast adjustments, listed here so that the gear can be Validated.
     sets.impetus_body = { body=Empy_Bhikku.body }
-    sets.footwork_kick_feet = {
-		-- feet=Artifact_Anchorite.feet
-	}
+    sets.footwork_kick_feet = { feet=Artifact_Anchorite.feet }
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -358,6 +435,36 @@ function job_post_precast(spell, action, spellMap, eventArgs)
             equip(sets.precast.MaxTP)
         end
     end
+end
+
+-- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
+function job_aftercast(spell, action, spellMap, eventArgs)
+    if state.Weapon.current == 'Mercurial Pole' then
+        equip({main="Mercurial Pole"})
+	elseif state.Weapon.current == 'Karambit' then
+		equip({main="Karambit"})
+    end
+end
+
+-- Handle notifications of general user state change.
+function job_state_change(stateField, newValue, oldValue)
+    if stateField == 'Current Weapon' then
+        if state.Weapon.current == 'Mercurial Pole' then
+            equip({main="Mercurial Pole"})
+		elseif state.Weapon.current == 'Karambit' then
+            equip({main="Karambit"})
+		end
+    end
+end
+
+-- Modify the default idle set after it was constructed.
+function customize_idle_set(idleSet)
+    if state.Weapon.current == 'Mercurial Pole' then
+        equip({ranged="Mercurial Pole"})
+	elseif state.Weapon.current == 'Karambit' then
+		equip({main="Karambit"})
+    end
+    return idleSet
 end
 
 

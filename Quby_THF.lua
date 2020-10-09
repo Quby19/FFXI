@@ -46,7 +46,7 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('Normal', 'Acc', 'Mod')
+    state.OffenseMode:options('Normal', 'Acc', 'Hybrid')
     state.WeaponskillMode:options('Normal', 'Acc')
     state.CastingMode:options('Normal', 'Resistant')
     state.PhysicalDefenseMode:options('Normal', 'PDT', 'MDT')
@@ -146,7 +146,7 @@ function init_gear_sets()
     sets.precast.WS = {
 		head=gear.meghanada_head,
 		neck='Fotia Gorget',
-		ear1="Ishvara Earring",
+		ear1="Odr Earring",
 		ear2="Moonshade Earring",
         body=gear.meghanada_body,
 		hands=gear.meghanada_hands,
@@ -156,7 +156,7 @@ function init_gear_sets()
 		waist="Fotia Belt",
 		legs=gear.herculean_legs_wsd,
 		feet=gear.meghanada_feet
-		}
+	}
 		
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {})
 
@@ -187,9 +187,19 @@ function init_gear_sets()
 	
 	-- 50% STR / 50% MND (TP bonus past 2000)
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
+		head="Lilitu Headpiece",
 		neck="Caro Necklace",
+		ear1="Sherida Earring",
+		ear2="Moonshade Earring",
+        body=gear.meghanada_body,
+		hands=gear.meghanada_hands,
+		ring1="Apate Ring",
+		ring2="Gere Ring",
+        back="Toutatis's Cape",
 		waist="Sailfi Belt +1",
-		})
+		legs=gear.herculean_legs_wsd,
+		feet=gear.meghanada_feet
+	})
 
     sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {
 		head=gear.herc_head_mabwsd,
@@ -204,7 +214,7 @@ function init_gear_sets()
 		left_ring="Dingir Ring",
 		right_ring="Acumen Ring",
 		back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
-		})
+	})
 
     sets.precast.WS['Aeolian Edge'].TH = set_combine(sets.precast.WS['Aeolian Edge'], sets.TreasureHunter)
 
@@ -237,10 +247,7 @@ function init_gear_sets()
     --------------------------------------
 
     -- Resting sets
-    sets.resting = {
-		neck="Orochi Nodowa",
-		}
-
+    sets.resting = sets.idle.Regen
 
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
 
@@ -251,12 +258,12 @@ function init_gear_sets()
 		ear2="Odnowa Earring +1",
         body=gear.meghanada_body,
 		hands="Malignance Gloves",
-		ring1="Vocane Ring",
+		ring1="Shneddick Ring",
 		ring2="Defending Ring",
         back="Moonbeam Cape",
 		waist="Flume Belt",
 		legs="Malignance Tights",
-		feet="Jute Boots +1"
+		feet="Malignance Boots"
 		}
 	
 	sets.idle.Regen = set_combine(sets.idle, {
@@ -264,13 +271,12 @@ function init_gear_sets()
         body=gear.meghanada_body,
 		hands=gear.meghanada_hands,
 		neck="Sanctity Necklace",
+		ring2="Sheltered Ring",
 		})
 		
 	sets.idle.PDT = set_combine(sets.idle, {
 		feet="Malignance Boots"
 		})
-
-    sets.idle.Weak = set_combine(sets.idle, {})
 
 
     -- Defense sets
@@ -288,7 +294,7 @@ function init_gear_sets()
 		ear2="Odnowa Earring +1",
         body=gear.meghanada_body,
 		hands="Malignance Gloves",
-		ring1="Vocane Ring",
+		ring1="Gelatinous Ring +1",
 		ring2="Defending Ring",
         back="Moonbeam Cape",
 		waist="Flume Belt",
@@ -304,7 +310,7 @@ function init_gear_sets()
     -- Normal melee group
     sets.engaged = {
 		head=gear.adhemar_head_melee,
-		neck="Anu Torque",
+		neck="Lissome Necklace",
 		ear1="Sherida Earring",
 		ear2="Telos Earring",
         body=gear.adhemar_body_melee,
@@ -325,13 +331,13 @@ function init_gear_sets()
 		ear2="Telos Earring",
         body=gear.adhemar_body_melee,
 		hands="Malignance Gloves",
-		ring1="Meghanada Ring",
-		ring2="Mummu Ring",
+		ring1="Ilabrat Ring",
+		ring2="Moonbeam Ring",
 		waist="Eschan Stone",
         feet="Malignance Boots",
 	})
 	
-	sets.engaged.Mod = {
+	sets.engaged.Hybrid = {
 		head="Malignance Chapeau",
 		neck="Loricate Torque +1",
 		ear1="Sherida Earring",

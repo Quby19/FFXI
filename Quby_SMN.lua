@@ -294,7 +294,6 @@ function init_gear_sets()
 		ear2="Mendi. Earring",
 		body=gear.vanya_body_skill,
 		hands=gear.vanya_hands_skill,
-		left_ring="Vocane Ring",
 		back=gear.campestres_pbp_haste,
 		legs=gear.vanya_legs_skill,
 		feet=gear.vanya_feet_skill,
@@ -312,7 +311,7 @@ function init_gear_sets()
 	
 	sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {
 		-- neck="Nodens Gorget",
-		waist="Siegel Sash"
+		-- waist="Siegel Sash"
 	})
 	
 	sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {
@@ -422,17 +421,17 @@ function init_gear_sets()
 		sub="Genbu's Shield",
 		ammo="Staunch Tathlum +1",
 		head=Empy_Beckoner.Head,
+		neck="Sanctity Necklace",
+		ear1="Etiolation Earring",
+		ear2="Cath Palug Earring",
 		body="Shomonjijoe +1",
 		hands="Asteria Mitts +1",
-		legs="Assiduity Pants +1",
-		feet="Herald's Gaiters",
-		neck="Sanctity Necklace",
-		waist="Fucho-no-Obi",
-		ear1="Etiolation Earring",
-		right_ear="Cath Palug Earring",
-		left_ring="Sheltered Ring",
-		right_ring="Sangoma Ring",
+		ring1="Shneddick Ring",
+		ring2="Sangoma Ring",
 		back=gear.campestres_pbp_haste,
+		waist="Fucho-no-Obi",
+		legs="Assiduity Pants +1",
+		feet="Baayami Sabots",
 	}
 
 	-- Total: 51%
@@ -442,7 +441,7 @@ function init_gear_sets()
 		ammo="Staunch Tathlum +1", -- 3%
 		neck="Loricate Torque +1", -- 6%
 		ear1="Etiolation Earring",
-		ring1="Vocane Ring", -- 7%
+		ring1="Gelatinous Ring +1",
 		ring2="Defending Ring", -- 10%
 		waist="Regal Belt",
 		feet=Empy_Beckoner.Feet
@@ -492,11 +491,6 @@ function init_gear_sets()
 	
 	})
 
-    --sets.idle.Spirit = {main="Gridarvor",sub="Achaq Grip",ammo="Seraphicaller",
-    --    head="Convoker's Horn",neck="Caller's Pendant",ear1="Gifted Earring",ear2="Loquacious Earring",
-    --    body="Hagondes Coat",hands="Serpentes Cuffs",ring1="Evoker's Ring",ring2="Sangoma Ring",
-    --    back="Samanisi Cape",waist="Fucho-no-Obi",legs="Summoner's Spats",feet="Herald's Gaiters"}
-
     sets.idle.Avatar.Favor = set_combine(sets.idle.Avatar, {
 		-- head="Baayami Hat +1",
 		-- body=gear.apogee_body_magic,
@@ -543,7 +537,7 @@ function init_gear_sets()
 	-- Alexander
     sets.perp.Alexander = sets.midcast.Pet.BloodPactWard
 
-    sets.Kiting = {feet="Herald's Gaiters"}
+    sets.Kiting = {ring1="Shneddick Ring"}
     
     sets.latent_refresh = {waist="Fucho-no-obi"}    
 

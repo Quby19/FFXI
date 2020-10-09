@@ -52,7 +52,7 @@ function init_gear_sets()
 		head="Nahtirah Hat",
 		neck="Dualism Collar",
 		ear1="Malignance Earring",
-		ear2="Etiolation Earring",
+		ear2="Loquacious Earring",
 		body="Inyanga Jubbah +2",
 		hands="Inyanga Dastanas +2",
 		ring1="Kishar Ring",

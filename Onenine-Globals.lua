@@ -33,7 +33,9 @@ function define_global_sets()
     gear.vanya_body_skill		={ name="Vanya Robe", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}}
     gear.vanya_hands_skill		={ name="Vanya Cuffs", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}}
     gear.vanya_legs_skill		={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}}
-    gear.vanya_feet_skill		={ name="Vanya Clogs", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}}
+	gear.vanya_feet_skill		={ name="Vanya Clogs", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}}
+	
+	gear.valorous_feet_th		={ name="Valorous Greaves", augments={'Crit.hit rate+1','STR+8','"Treasure Hunter"+2','Mag. Acc.+14 "Mag.Atk.Bns."+14',}}
 	
 	------------------------------------------------------------------------------
 

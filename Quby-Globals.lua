@@ -40,14 +40,15 @@ function define_global_sets()
 	gear.inyanga_body		= "Inyanga Jubbah +2"
 	
 	-- Adhemar Mods
-	gear.adhemar_head_melee 	={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}}
-	gear.adhemar_body_melee 	={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}
-	gear.adhemar_hands_melee 	={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}}
+	gear.adhemar_head_melee 	={ name="Adhemar Bonnet +1", augments={'STR+12','DEX+12','Attack+20',}}
+	gear.adhemar_body_melee 	={ name="Adhemar Jacket +1", augments={'STR+12','DEX+12','Attack+20',}}
+	gear.adhemar_hands_melee 	={ name="Adhemar Wrist. +1", augments={'STR+12','DEX+12','Attack+20',}}
 	gear.adhemar_legs_preshot 	={ name="Adhemar Kecks", augments={'AGI+10','Rng.Acc.+15','Rng.Atk.+15',}}
 	
 	-- Herculean Mods
 	gear.herc_head_mabwsd 		={ name="Herculean Helm", augments={'"Mag.Atk.Bns."+22','Weapon skill damage +4%','INT+2',}}
 	gear.herc_head_wsd 			={ name="Herculean Helm", augments={'Weapon skill damage +5%','Accuracy+12',}}
+	gear.herc_hands_TH2				={ name="Herculean Gloves", augments={'AGI+9','CHR+7','"Treasure Hunter"+2','Accuracy+14 Attack+14',}}
 	gear.herculean_legs_wsd 	={ name="Herculean Trousers", augments={'Pet: Haste+4','Accuracy+4 Attack+4','Weapon skill damage +10%',}}
 	gear.herculean_legs_mab 	={ name="Herculean Trousers", augments={'MND+1','Accuracy+13','Weapon skill damage +3%','Accuracy+4 Attack+4','Mag. Acc.+19 "Mag.Atk.Bns."+19',}}
 	gear.herculean_feet_melee 	={ name="Herculean Boots", augments={'Accuracy+10','"Triple Atk."+4','DEX+9',}}
@@ -56,6 +57,7 @@ function define_global_sets()
 	gear.valorous_head			={ name="Valorous Mask", augments={'Accuracy+17','Weapon skill damage +3%','STR+11',}}
 	gear.valorous_hands			={ name="Valorous Mitts", augments={'Weapon skill damage +3%','STR+10','Accuracy+3','Attack+8',}}
 	gear.valorous_feet			={ name="Valorous Greaves", augments={'Accuracy+10 Attack+10','Weapon skill damage +3%','STR+9','Accuracy+13',}}
+	gear.valorous_feet_TH		={ name="Valorous Greaves", augments={'Weapon skill damage +1%','Pet: DEX+10','"Treasure Hunter"+1','Mag. Acc.+2 "Mag.Atk.Bns."+2',}}
 	
 	-- Merlinic Mods
 	gear.merlinic_feet_th		={ name="Merlinic Crackows", augments={'"Fast Cast"+4','"Mag.Atk.Bns."+9','"Treasure Hunter"+2','Accuracy+1 Attack+1','Mag. Acc.+15 	"Mag.Atk.Bns."+15',}}
